@@ -73,6 +73,15 @@ namespace Bank_Business_Logic_Layer
         }
 
 
+        public void UpdatePermissionsString()
+        { 
+        
+            FullPermissionStr = this.MainPermissions.ToString() + "#" + this.ClientsManagementPermissions.ToString() + "#" +
+                this.UsersManagementPermissions.ToString() + "#" + this.CurrenciesManagementPermissions.ToString() + "#" + this.TransactionsManagementPermissions.ToString();
+
+        }
+
+
 
     }
 }

@@ -48,8 +48,8 @@ namespace Bank_Data_Access_Layer
             return PersonID;
         }
 
-        public static bool GetUserInfoByID(int UserID, ref int PersonID, ref string FirstName, ref string LastName, ref string Email,
-            ref string Phone, ref string UserName, ref string Password, ref int Permissions)
+        public static bool GetUserInfoByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref string FirstName, ref string LastName,
+            ref string Email, ref string Phone, ref string PermissionsStringString)
         {
             bool isFound = false;
 
@@ -74,8 +74,7 @@ namespace Bank_Data_Access_Layer
                     PersonID = (int)reader["PersonID"];
                     UserName = (string)reader["UserName"];
                     Password = (string)reader["Password"];
-                    Permissions = (int)reader["Permissions"];
-
+                    PermissionsStringString = (string)reader["PermissionsStringString"];
                     clsPersonDataAccess.GetPersonInfoByID(PersonID, ref FirstName, ref LastName, ref Email, ref Phone);
                     isFound = true;
                 }
@@ -96,8 +95,8 @@ namespace Bank_Data_Access_Layer
             return isFound;
         }
 
-        public static bool GetUserInfoByUserName(string UserName, ref int UserID, ref int PersonID, ref string FirstName, ref string LastName,
-            ref string Email, ref string Phone, ref string Password, ref int Permissions)
+        public static bool GetUserInfoByUserName(string UserName, ref int UserID, ref int PersonID, ref string Password, ref string FirstName, ref string LastName,
+            ref string Email, ref string Phone, ref string PermissionsString)
         {
             bool isFound = false;
             
@@ -121,8 +120,9 @@ namespace Bank_Data_Access_Layer
                     UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
                     Password = (string)reader["Password"];
-                    Permissions = (int)reader["Permissions"];
+                    PermissionsString = (string)reader["PermissionsString"];
                     clsPersonDataAccess.GetPersonInfoByID(PersonID, ref FirstName, ref LastName, ref Email, ref Phone);
+
                 }
 
                 reader.Close();
@@ -142,7 +142,7 @@ namespace Bank_Data_Access_Layer
 
 
         public static bool GetUserInfoByUserNameAndPassword(string UserName, string Password, ref int UserID, ref int PersonID, ref string FirstName, ref string LastName,
-            ref string Email, ref string Phone, ref int Permissions)
+            ref string Email, ref string Phone, ref string PermissionsString)
         {
             bool isFound = false;
 
@@ -168,7 +168,7 @@ namespace Bank_Data_Access_Layer
                     UserID = (int)reader["UserID"];
                     PersonID = (int)reader["PersonID"];
                     Password = (string)reader["Password"];
-                    Permissions = (int)reader["Permissions"];
+                    PermissionsString = (string)reader["PermissionsString"];
                     clsPersonDataAccess.GetPersonInfoByID(PersonID, ref FirstName, ref LastName, ref Email, ref Phone);
                 }
 
@@ -188,13 +188,11 @@ namespace Bank_Data_Access_Layer
         }
 
 
-
-
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT Users.UserID, Users.UserName, Users.Password, Persons.FirstName, Persons.LastName, Persons.Email, Persons.Phone, Users.Permissions
+            string query = @"SELECT Users.UserID, Users.UserName, Users.Password, Persons.FirstName, Persons.LastName, Persons.Email, Persons.Phone, Users.PermissionsString
                                 FROM     Users INNER JOIN
                                 Persons ON Users.PersonID = Persons.PersonID";
 
@@ -228,15 +226,15 @@ namespace Bank_Data_Access_Layer
         }
 
         public static int AddNewUser(string FirstName, string LastName, string Email, string Phone, string UserName,
-             string Password, int Permissions)
+             string Password, string PermissionsString)
         {
             int UserID = -1, PersonID = -1;
 
             PersonID = clsPersonDataAccess.AddNewPerson(FirstName, LastName, Email, Phone);
 
             //
-            string query = @"INSERT INTO Users (PersonID ,UserName, Password, Permissions)
-                             VALUES (@PersonID, @UserName, @Password, @Permissions);
+            string query = @"INSERT INTO Users (PersonID ,UserName, Password, PermissionsString)
+                             VALUES (@PersonID, @UserName, @Password, @PermissionsString);
                              SELECT SCOPE_IDENTITY();";
 
 
@@ -250,7 +248,7 @@ namespace Bank_Data_Access_Layer
 
             command.Parameters.AddWithValue("@Password", Password);
 
-            command.Parameters.AddWithValue("@Permissions", Permissions);
+            command.Parameters.AddWithValue("@PermissionsString", PermissionsString);
 
 
             try
@@ -277,30 +275,30 @@ namespace Bank_Data_Access_Layer
             return UserID;
         }
 
-        public static bool UpdateUser(int ID, string NewFirstName, string NewLastName, string NewEmail, string NewPhone,
-        string Password, float Permissions)
+        public static bool UpdateUser(int UserID, string NewFirstName, string NewLastName, string NewEmail, string NewPhone,
+        string Password, float PermissionsString)
         {
             int rowsAffected = 0, PersonID = -1;
             SqlConnection connection = new SqlConnection(clsBankDataAccessSettings.ConnectionString);
 
-            PersonID = GetUserPersonID(ID);
+            PersonID = GetUserPersonID(UserID);
 
             clsPersonDataAccess.UpdatePerson(PersonID, NewFirstName, NewLastName, NewEmail, NewPhone);
 
 
             string query = @"Update Users  
                             set Password = @Password, 
-                                Permissions = @Permissions
+                                PermissionsString = @PermissionsString
                                 where UserID = @UserID";
 
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@UserID", ID);
+            command.Parameters.AddWithValue("@UserID", UserID);
 
             command.Parameters.AddWithValue("@Password", Password);
 
-            command.Parameters.AddWithValue("@Permissions", Permissions);
+            command.Parameters.AddWithValue("@PermissionsString", PermissionsString);
 
 
             try
@@ -322,11 +320,11 @@ namespace Bank_Data_Access_Layer
             return (rowsAffected > 0);
         }
 
-        public static bool DeleteUser(int ID)
+        public static bool DeleteUser(int UserID)
         {
             int rowsAffected = 0, PersonID = -1;
 
-            PersonID = GetUserPersonID(ID);
+            PersonID = GetUserPersonID(UserID);
 
             SqlConnection connection = new SqlConnection(clsBankDataAccessSettings.ConnectionString);
 
@@ -335,7 +333,7 @@ namespace Bank_Data_Access_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@UserID", ID);
+            command.Parameters.AddWithValue("@UserID", UserID);
 
             try
             {
@@ -356,7 +354,7 @@ namespace Bank_Data_Access_Layer
             return (rowsAffected > 0);
         }
 
-        public static bool DoesUserExist(int ID)
+        public static bool DoesUserExist(int UserID)
         {
             bool isFound = false;
 
@@ -366,7 +364,7 @@ namespace Bank_Data_Access_Layer
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@UserID", ID);
+            command.Parameters.AddWithValue("@UserID", UserID);
 
             try
             {
@@ -421,7 +419,6 @@ namespace Bank_Data_Access_Layer
 
             return isFound;
         }
-
 
         public static int GetUsersCountInSystem()
         {
