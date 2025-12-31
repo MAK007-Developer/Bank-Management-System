@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Bank_Business_Logic_Layer.clsClientBusinessLogic">
+    <Position X="1" Y="7.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAABEIAEAEIAAAQACAgAAAAEAAgIAAAQAEABAgEAAAM=</HashCode>
+      <FileName>clsClientBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsCurrencyBusinessLogic" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAAIEAAIMAACIAIQAAAIAEAAAIIAAAAEAAEAAACAA=</HashCode>
+      <FileName>clsCurrencyBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsLoginBusinessLogic" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>clsLoginBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsLoginsBusinessLogic" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAABAAIEAAAA=</HashCode>
+      <FileName>clsLoginsBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsPermissionsBLL">
+    <Position X="9.75" Y="1.25" Width="4" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Bank_Business_Logic_Layer.clsPermissionsBLL.enMainPermissions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>clsPermissionsBLL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Bank_Business_Logic_Layer.clsPermissionsBLL.enClientsManagementPermissions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>clsPermissionsBLL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Bank_Business_Logic_Layer.clsPermissionsBLL.enUsersManagementPermissions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>clsPermissionsBLL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Bank_Business_Logic_Layer.clsPermissionsBLL.enCurrenciesManagementPermissions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>clsPermissionsBLL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Bank_Business_Logic_Layer.clsPermissionsBLL.enTransactionsManagementPermissions" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>clsPermissionsBLL.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgAAEEAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>clsPermissionsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsPersonBusinessLogic" Collapsed="true">
+    <Position X="1.5" Y="0.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Bank_Business_Logic_Layer.clsPersonBusinessLogic.enMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>clsPersonBusinessLogic.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAAAAMAAAOAAAAAAAAAAAAAAAEAKgAAAAAAAIAgAAAg=</HashCode>
+      <FileName>clsPersonBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsTransferBusinessLogic" Collapsed="true">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>clsTransferBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bank_Business_Logic_Layer.clsUserBusinessLogic">
+    <Position X="6.5" Y="7.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAIAAAAAAAQCEABAAAAgAAAIIAAACEQAACIEAAAA=</HashCode>
+      <FileName>clsUserBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

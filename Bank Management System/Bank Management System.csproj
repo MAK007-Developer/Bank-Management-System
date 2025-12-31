@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24565116-03F0-485E-9505-E90085B71AD4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Bank_Management_System</RootNamespace>
+    <AssemblyName>Bank Management System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Programming Advices\18. C# and Database Connectivity\Bank Management System\App\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>CE3E09EA470BA4729C86607D073A7DC87D6DDC39</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Bank Management System_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Krypton.Toolkit, Version=100.25.11.328, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>packages\Krypton.Toolkit.100.25.11.328\lib\net472\Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Siticone.Desktop.UI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=9683591576b7f0b4, processorArchitecture=MSIL">
+      <HintPath>packages\Siticone.Desktop.UI.2.1.1\lib\net40\Siticone.Desktop.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsGlobal.cs" />
+    <Compile Include="clsUserControlUtil.cs" />
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPermissions.Designer.cs">
+      <DependentUpon>frmPermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControlsWinForms\Clients\AddClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\AddClientControl.Designer.cs">
+      <DependentUpon>AddClientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\ClientMangementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\ClientMangementControl.Designer.cs">
+      <DependentUpon>ClientMangementControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\DeleteClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\DeleteClientControl.Designer.cs">
+      <DependentUpon>DeleteClientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\FindClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\FindClientControl.Designer.cs">
+      <DependentUpon>FindClientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\UpdateClientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\UpdateClientControl.Designer.cs">
+      <DependentUpon>UpdateClientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\AddCurrencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\AddCurrencyControl.Designer.cs">
+      <DependentUpon>AddCurrencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\CurrencyExchangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\CurrencyExchangeControl.Designer.cs">
+      <DependentUpon>CurrencyExchangeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\ExchangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\ExchangeControl.Designer.cs">
+      <DependentUpon>ExchangeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\ExchangeLogControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\ExchangeLogControl.Designer.cs">
+      <DependentUpon>ExchangeLogControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\FindCurrencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\FindCurrencyControl.Designer.cs">
+      <DependentUpon>FindCurrencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\ListCurrenciesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\ListCurrenciesControl.Designer.cs">
+      <DependentUpon>ListCurrenciesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Home\HomeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Home\HomeControl.Designer.cs">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\ListClientsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Clients\ListClientsControl.Designer.cs">
+      <DependentUpon>ListClientsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\DepositControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\DepositControl.Designer.cs">
+      <DependentUpon>DepositControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\ListBalancesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\ListBalancesControl.Designer.cs">
+      <DependentUpon>ListBalancesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\TransferControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\TransferControl.Designer.cs">
+      <DependentUpon>TransferControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\TransferLogControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\TransferLogControl.Designer.cs">
+      <DependentUpon>TransferLogControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\UpdateCurrencyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\CurrencyExchange\UpdateCurrencyControl.Designer.cs">
+      <DependentUpon>UpdateCurrencyControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\WithdrawControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\WithdrawControl.Designer.cs">
+      <DependentUpon>WithdrawControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\AddUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\AddUserControl.Designer.cs">
+      <DependentUpon>AddUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\DeleteUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\DeleteUserControl.Designer.cs">
+      <DependentUpon>DeleteUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\FindUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\FindUserControl.Designer.cs">
+      <DependentUpon>FindUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\ListUsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\ListUsersControl.Designer.cs">
+      <DependentUpon>ListUsersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\TransactionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Transactions\TransactionsControl.Designer.cs">
+      <DependentUpon>TransactionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\UpdateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\UpdateUserControl.Designer.cs">
+      <DependentUpon>UpdateUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\UserLoginsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\UserLoginsControl.Designer.cs">
+      <DependentUpon>UserLoginsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\UsersManagementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlsWinForms\Users\UsersManagementControl.Designer.cs">
+      <DependentUpon>UsersManagementControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPermissions.resx">
+      <DependentUpon>frmPermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControlsWinForms\Clients\AddClientControl.resx">
+      <DependentUpon>AddClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Clients\ClientMangementControl.resx">
+      <DependentUpon>ClientMangementControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Clients\DeleteClientControl.resx">
+      <DependentUpon>DeleteClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Clients\FindClientControl.resx">
+      <DependentUpon>FindClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Clients\UpdateClientControl.resx">
+      <DependentUpon>UpdateClientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\AddCurrencyControl.resx">
+      <DependentUpon>AddCurrencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\CurrencyExchangeControl.resx">
+      <DependentUpon>CurrencyExchangeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\ExchangeControl.resx">
+      <DependentUpon>ExchangeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\ExchangeLogControl.resx">
+      <DependentUpon>ExchangeLogControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\FindCurrencyControl.resx">
+      <DependentUpon>FindCurrencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\ListCurrenciesControl.resx">
+      <DependentUpon>ListCurrenciesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Home\HomeControl.resx">
+      <DependentUpon>HomeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Clients\ListClientsControl.resx">
+      <DependentUpon>ListClientsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Transactions\DepositControl.resx">
+      <DependentUpon>DepositControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Transactions\ListBalancesControl.resx">
+      <DependentUpon>ListBalancesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Transactions\TransferControl.resx">
+      <DependentUpon>TransferControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Transactions\TransferLogControl.resx">
+      <DependentUpon>TransferLogControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\CurrencyExchange\UpdateCurrencyControl.resx">
+      <DependentUpon>UpdateCurrencyControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Transactions\WithdrawControl.resx">
+      <DependentUpon>WithdrawControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\AddUserControl.resx">
+      <DependentUpon>AddUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\DeleteUserControl.resx">
+      <DependentUpon>DeleteUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\FindUserControl.resx">
+      <DependentUpon>FindUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\ListUsersControl.resx">
+      <DependentUpon>ListUsersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Transactions\TransactionsControl.resx">
+      <DependentUpon>TransactionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\UpdateUserControl.resx">
+      <DependentUpon>UpdateUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\UserLoginsControl.resx">
+      <DependentUpon>UserLoginsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlsWinForms\Users\UsersManagementControl.resx">
+      <DependentUpon>UsersManagementControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Bank Management System_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MG Ready4Use.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExposedPassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HiddenPassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bank Business Logic Layer\Bank Business Logic Layer.csproj">
+      <Project>{1701d01a-70c2-43c6-b2a7-b029067c7920}</Project>
+      <Name>Bank Business Logic Layer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
