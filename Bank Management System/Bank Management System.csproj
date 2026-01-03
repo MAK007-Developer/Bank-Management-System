@@ -90,11 +90,11 @@
   <ItemGroup>
     <Compile Include="clsGlobal.cs" />
     <Compile Include="clsUserControlUtil.cs" />
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\frmPermissions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\frmPermissions.Designer.cs">
+      <DependentUpon>frmPermissions.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmAbout.cs">
       <SubType>Form</SubType>
@@ -107,12 +107,6 @@
     </Compile>
     <Compile Include="Forms\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmPermissions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmPermissions.Designer.cs">
-      <DependentUpon>frmPermissions.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -284,17 +278,14 @@
     <Compile Include="UserControlsWinForms\Users\UsersManagementControl.Designer.cs">
       <DependentUpon>UsersManagementControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmPermissions.resx">
+      <DependentUpon>frmPermissions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPermissions.resx">
-      <DependentUpon>frmPermissions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
