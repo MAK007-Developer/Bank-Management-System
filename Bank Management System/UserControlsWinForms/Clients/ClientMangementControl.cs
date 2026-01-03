@@ -65,10 +65,10 @@ namespace Bank_Management_System.UserControlsWinForms
         private void ClientMangementControl_Load(object sender, EventArgs e)
         {
 
-            if (!clsUserControlUtil.DoesUserHavePermissions(LoginUser, this))
+            if (!clsUserControlUtil.PermissionsDict["HasClientsFullAccess"])
             {
-                this.Enabled = false;   
-                MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found", 
+                this.Enabled = false;
+                MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 

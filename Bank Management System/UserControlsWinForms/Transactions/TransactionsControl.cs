@@ -63,7 +63,7 @@ namespace Bank_Management_System.UserControlsWinForms
         private void TransactionsControl_Load(object sender, EventArgs e)
         {
 
-            if (!clsUserControlUtil.DoesUserHavePermissions(LoginUser, this))
+            if (!clsUserControlUtil.PermissionsDict["HasTransactionsFullAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

@@ -106,7 +106,7 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void TransferControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.DoesUserHavePermissions(LoginUser, this))
+            if (!clsUserControlUtil.PermissionsDict["HasTransfer"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

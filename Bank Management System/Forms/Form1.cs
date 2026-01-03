@@ -42,6 +42,7 @@ namespace Bank_Management_System.Forms
         }
 
         public clsPermissionsBLL ObjPermissions = new clsPermissionsBLL();
+
         public Form1()
         {
             InitializeComponent();
@@ -803,24 +804,16 @@ namespace Bank_Management_System.Forms
 
         private void trvPermissions_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            
             TreeNode Checkednode = e.Node;
-
             //Checkednode.Text;
 
-
-            
             SetPermissions(Checkednode);
             
-
-
-            CheckTreeViewNode(e.Node, e.Node.Checked);
-
-           
+            CheckTreeViewNode(e.Node, e.Node.Checked);  
         }
 
 
-        private void CheckTreeViewNode(TreeNode node, Boolean isChecked)
+        private void CheckTreeViewNode(TreeNode node, bool isChecked)
         {
             foreach (TreeNode item in node.Nodes)
             {
@@ -835,10 +828,7 @@ namespace Bank_Management_System.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ObjPermissions.FullPermissionStr = ObjPermissions.MainPermissions.ToString() + "#"
-                + ObjPermissions.ClientsManagementPermissions.ToString() + "#" + ObjPermissions.UsersManagementPermissions.ToString()
-                + "#" + ObjPermissions.CurrenciesManagementPermissions.ToString() + "#" + ObjPermissions.TransactionsManagementPermissions.ToString();
-
+            ObjPermissions.UpdatePermissionsString();
 
             MessageBox.Show(ObjPermissions.FullPermissionStr.ToString());
         }

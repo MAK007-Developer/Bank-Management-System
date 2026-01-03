@@ -17,7 +17,7 @@ namespace Bank_Business_Logic_Layer
 
         public string Password { set; get; }
         public string PermissionsString { set; get; }
-        public clsPermissionsBLL ObjPermissions { set; get; }
+        public clsPermissionsBLL PermissionsInfo { set; get; }
 
         private bool _AddNewUser()
         {
@@ -53,7 +53,7 @@ namespace Bank_Business_Logic_Layer
             this.Password = string.Empty;   
             this.PermissionsString = "";
 
-            ObjPermissions = new clsPermissionsBLL();
+            PermissionsInfo = new clsPermissionsBLL();
             Mode = enMode.AddNew;
         } 
         
@@ -72,11 +72,11 @@ namespace Bank_Business_Logic_Layer
 
             string[] arrPermissionsSplitted = SplitPermissionsString();
 
-            ObjPermissions.MainPermissions = Convert.ToInt32(arrPermissionsSplitted[0]);
-            ObjPermissions.ClientsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[1]);
-            ObjPermissions.UsersManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[2]);
-            ObjPermissions.CurrenciesManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[3]);
-            ObjPermissions.TransactionsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[4]);
+            PermissionsInfo.MainPermissions = Convert.ToInt32(arrPermissionsSplitted[0]);
+            PermissionsInfo.ClientsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[1]);
+            PermissionsInfo.UsersManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[2]);
+            PermissionsInfo.CurrenciesManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[3]);
+            PermissionsInfo.TransactionsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[4]);
 
             Mode = enMode.Update;
         }

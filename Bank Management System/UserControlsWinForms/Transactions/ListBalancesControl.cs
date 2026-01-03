@@ -49,16 +49,13 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void ListBalancesControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.DoesUserHavePermissions(LoginUser, this))
+            if (!clsUserControlUtil.PermissionsDict["HasListBalances"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 return;
             }
-
-
 
             dgvListBalances.DataSource = clsClientBusinessLogic.ListBalances();
         }

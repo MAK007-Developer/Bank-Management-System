@@ -74,7 +74,7 @@ namespace Bank_Management_System.UserControlsWinForms.Clients
 
         private void UpdateClientControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.DoesUserHavePermissions(LoginUser, this))
+            if (!clsUserControlUtil.PermissionsDict["HasUpdateClient"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

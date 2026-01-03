@@ -91,7 +91,7 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void DepositControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.DoesUserHavePermissions(LoginUser, this))
+            if (!clsUserControlUtil.PermissionsDict["HasDeposit"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",
