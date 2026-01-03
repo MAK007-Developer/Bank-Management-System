@@ -37,11 +37,11 @@ namespace Bank_Management_System.UserControlsWinForms.Users
         {
             using (frmPermissions frmGetUserPermissions = new frmPermissions())
             {
-                frmGetUserPermissions.ObjPermissions.MainPermissions = Permissions;
+                frmGetUserPermissions.PermissionsInfo.MainPermissions = Permissions;
                 if (frmGetUserPermissions.ShowDialog() == DialogResult.OK)
                 {
-                    this.Permissions = frmGetUserPermissions.ObjPermissions.MainPermissions;
-                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.ObjPermissions.ToString();
+                    this.Permissions = frmGetUserPermissions.PermissionsInfo.MainPermissions;
+                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.PermissionsInfo.ToString();
                 }
                 else
                 {

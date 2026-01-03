@@ -1,6 +1,6 @@
 ﻿namespace Bank_Management_System.Forms
 {
-    partial class frmPermissions
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,511 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermissions));
-            this.pnlUserPermissions = new System.Windows.Forms.Panel();
-            this.chkbFullAcess = new System.Windows.Forms.CheckBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.gbTransactions = new System.Windows.Forms.GroupBox();
-            this.chkbListBalances = new System.Windows.Forms.CheckBox();
-            this.chkbWithdraw = new System.Windows.Forms.CheckBox();
-            this.chkbTransfer = new System.Windows.Forms.CheckBox();
-            this.chkbTransferLog = new System.Windows.Forms.CheckBox();
-            this.chkbDeposit = new System.Windows.Forms.CheckBox();
-            this.chkbTransactionsManagement = new System.Windows.Forms.CheckBox();
-            this.gbCurrencies = new System.Windows.Forms.GroupBox();
-            this.chkbExchange = new System.Windows.Forms.CheckBox();
-            this.chkbListCurrencies = new System.Windows.Forms.CheckBox();
-            this.chkbFindCurrency = new System.Windows.Forms.CheckBox();
-            this.chkbUpdateCurrency = new System.Windows.Forms.CheckBox();
-            this.chkbExchangeLog = new System.Windows.Forms.CheckBox();
-            this.chkbAddCurrency = new System.Windows.Forms.CheckBox();
-            this.chkbCurrencyExchange = new System.Windows.Forms.CheckBox();
-            this.gbUsers = new System.Windows.Forms.GroupBox();
-            this.chkbListUsers = new System.Windows.Forms.CheckBox();
-            this.chkbFindUser = new System.Windows.Forms.CheckBox();
-            this.chkbUpdateUser = new System.Windows.Forms.CheckBox();
-            this.chkbDeleteUser = new System.Windows.Forms.CheckBox();
-            this.chkbAddUser = new System.Windows.Forms.CheckBox();
-            this.chkbUsersManagement = new System.Windows.Forms.CheckBox();
-            this.gbClients = new System.Windows.Forms.GroupBox();
-            this.chkbListClients = new System.Windows.Forms.CheckBox();
-            this.chkbFindClient = new System.Windows.Forms.CheckBox();
-            this.chkbUpdateClient = new System.Windows.Forms.CheckBox();
-            this.chkbDeleteClient = new System.Windows.Forms.CheckBox();
-            this.chkbAddClient = new System.Windows.Forms.CheckBox();
-            this.chkbClientsManagement = new System.Windows.Forms.CheckBox();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("AddClient");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("DeleteClient");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("UpdateClient");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("ListClients");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("FindClient");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ClientsManagement", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("AddUser");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("DeleteUser");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("UpdateUser");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("ListUsers");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("FindUser");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("UsersManagement", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("AddCurrency");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("UpdateCurrency");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("ListCurrencies");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("FindCurrency");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("ExchangeCurrency");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("ExchangeLog");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("CurrencyExchange", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Deposit");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Withdraw");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("ListBalances");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Transfer");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("TransferLog");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Transactions", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("FullAccess", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode12,
+            treeNode19,
+            treeNode25});
             this.btnSave = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlUserPermissions.SuspendLayout();
-            this.gbTransactions.SuspendLayout();
-            this.gbCurrencies.SuspendLayout();
-            this.gbUsers.SuspendLayout();
-            this.gbClients.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.pnlUserPermissions = new System.Windows.Forms.Panel();
+            this.trvPermissions = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlUserPermissions.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlUserPermissions
-            // 
-            this.pnlUserPermissions.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pnlUserPermissions.Controls.Add(this.chkbFullAcess);
-            this.pnlUserPermissions.Controls.Add(this.btnBack);
-            this.pnlUserPermissions.Controls.Add(this.gbTransactions);
-            this.pnlUserPermissions.Controls.Add(this.gbCurrencies);
-            this.pnlUserPermissions.Controls.Add(this.gbUsers);
-            this.pnlUserPermissions.Controls.Add(this.gbClients);
-            this.pnlUserPermissions.Controls.Add(this.btnSave);
-            this.pnlUserPermissions.Controls.Add(this.pictureBox1);
-            this.pnlUserPermissions.Controls.Add(this.lblTitle);
-            this.pnlUserPermissions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlUserPermissions.Location = new System.Drawing.Point(0, 0);
-            this.pnlUserPermissions.Name = "pnlUserPermissions";
-            this.pnlUserPermissions.Size = new System.Drawing.Size(886, 751);
-            this.pnlUserPermissions.TabIndex = 0;
-            // 
-            // chkbFullAcess
-            // 
-            this.chkbFullAcess.AutoSize = true;
-            this.chkbFullAcess.BackColor = System.Drawing.Color.SteelBlue;
-            this.chkbFullAcess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbFullAcess.ForeColor = System.Drawing.Color.GhostWhite;
-            this.chkbFullAcess.Location = new System.Drawing.Point(378, 166);
-            this.chkbFullAcess.Name = "chkbFullAcess";
-            this.chkbFullAcess.Size = new System.Drawing.Size(135, 29);
-            this.chkbFullAcess.TabIndex = 74;
-            this.chkbFullAcess.Tag = "-1";
-            this.chkbFullAcess.Text = "Full Access";
-            this.chkbFullAcess.UseVisualStyleBackColor = false;
-            this.chkbFullAcess.CheckedChanged += new System.EventHandler(this.chkbFullAccess_CheckedChanged);
-            // 
-            // btnBack
-            // 
-            this.btnBack.AutoEllipsis = true;
-            this.btnBack.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Location = new System.Drawing.Point(103, 654);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(152, 54);
-            this.btnBack.TabIndex = 73;
-            this.btnBack.Text = "Back";
-            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // gbTransactions
-            // 
-            this.gbTransactions.Controls.Add(this.chkbListBalances);
-            this.gbTransactions.Controls.Add(this.chkbWithdraw);
-            this.gbTransactions.Controls.Add(this.chkbTransfer);
-            this.gbTransactions.Controls.Add(this.chkbTransferLog);
-            this.gbTransactions.Controls.Add(this.chkbDeposit);
-            this.gbTransactions.Controls.Add(this.chkbTransactionsManagement);
-            this.gbTransactions.Location = new System.Drawing.Point(456, 429);
-            this.gbTransactions.Name = "gbTransactions";
-            this.gbTransactions.Size = new System.Drawing.Size(382, 194);
-            this.gbTransactions.TabIndex = 72;
-            this.gbTransactions.TabStop = false;
-            // 
-            // chkbListBalances
-            // 
-            this.chkbListBalances.AutoSize = true;
-            this.chkbListBalances.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbListBalances.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbListBalances.Location = new System.Drawing.Point(170, 107);
-            this.chkbListBalances.Name = "chkbListBalances";
-            this.chkbListBalances.Size = new System.Drawing.Size(134, 24);
-            this.chkbListBalances.TabIndex = 5;
-            this.chkbListBalances.Tag = "ListBalances";
-            this.chkbListBalances.Text = "List Balances";
-            this.chkbListBalances.UseVisualStyleBackColor = true;
-            this.chkbListBalances.CheckedChanged += new System.EventHandler(this.chkbTransactionsItems_CheckedChanged);
-            // 
-            // chkbWithdraw
-            // 
-            this.chkbWithdraw.AutoSize = true;
-            this.chkbWithdraw.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbWithdraw.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbWithdraw.Location = new System.Drawing.Point(170, 67);
-            this.chkbWithdraw.Name = "chkbWithdraw";
-            this.chkbWithdraw.Size = new System.Drawing.Size(101, 24);
-            this.chkbWithdraw.TabIndex = 4;
-            this.chkbWithdraw.Tag = "Withdraw";
-            this.chkbWithdraw.Text = "Withdraw";
-            this.chkbWithdraw.UseVisualStyleBackColor = true;
-            this.chkbWithdraw.CheckedChanged += new System.EventHandler(this.chkbTransactionsItems_CheckedChanged);
-            // 
-            // chkbTransfer
-            // 
-            this.chkbTransfer.AutoSize = true;
-            this.chkbTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbTransfer.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbTransfer.Location = new System.Drawing.Point(25, 107);
-            this.chkbTransfer.Name = "chkbTransfer";
-            this.chkbTransfer.Size = new System.Drawing.Size(94, 24);
-            this.chkbTransfer.TabIndex = 3;
-            this.chkbTransfer.Tag = "Transfer";
-            this.chkbTransfer.Text = "Transfer";
-            this.chkbTransfer.UseVisualStyleBackColor = true;
-            this.chkbTransfer.CheckedChanged += new System.EventHandler(this.chkbTransactionsItems_CheckedChanged);
-            // 
-            // chkbTransferLog
-            // 
-            this.chkbTransferLog.AutoSize = true;
-            this.chkbTransferLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbTransferLog.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbTransferLog.Location = new System.Drawing.Point(25, 147);
-            this.chkbTransferLog.Name = "chkbTransferLog";
-            this.chkbTransferLog.Size = new System.Drawing.Size(127, 24);
-            this.chkbTransferLog.TabIndex = 2;
-            this.chkbTransferLog.Tag = "TransferLog";
-            this.chkbTransferLog.Text = "Transfer Log";
-            this.chkbTransferLog.UseVisualStyleBackColor = true;
-            this.chkbTransferLog.CheckedChanged += new System.EventHandler(this.chkbTransactionsItems_CheckedChanged);
-            // 
-            // chkbDeposit
-            // 
-            this.chkbDeposit.AutoSize = true;
-            this.chkbDeposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbDeposit.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbDeposit.Location = new System.Drawing.Point(25, 67);
-            this.chkbDeposit.Name = "chkbDeposit";
-            this.chkbDeposit.Size = new System.Drawing.Size(89, 24);
-            this.chkbDeposit.TabIndex = 1;
-            this.chkbDeposit.Tag = "Deposit";
-            this.chkbDeposit.Text = "Deposit";
-            this.chkbDeposit.UseVisualStyleBackColor = true;
-            this.chkbDeposit.CheckedChanged += new System.EventHandler(this.chkbTransactionsItems_CheckedChanged);
-            // 
-            // chkbTransactionsManagement
-            // 
-            this.chkbTransactionsManagement.AutoSize = true;
-            this.chkbTransactionsManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbTransactionsManagement.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbTransactionsManagement.Location = new System.Drawing.Point(25, 27);
-            this.chkbTransactionsManagement.Name = "chkbTransactionsManagement";
-            this.chkbTransactionsManagement.Size = new System.Drawing.Size(229, 24);
-            this.chkbTransactionsManagement.TabIndex = 0;
-            this.chkbTransactionsManagement.Tag = "-1";
-            this.chkbTransactionsManagement.Text = "Transactions Management";
-            this.chkbTransactionsManagement.UseVisualStyleBackColor = true;
-            this.chkbTransactionsManagement.CheckedChanged += new System.EventHandler(this.chkbTransactionsManagementFullAccess_CheckedChanged);
-            // 
-            // gbCurrencies
-            // 
-            this.gbCurrencies.Controls.Add(this.chkbExchange);
-            this.gbCurrencies.Controls.Add(this.chkbListCurrencies);
-            this.gbCurrencies.Controls.Add(this.chkbFindCurrency);
-            this.gbCurrencies.Controls.Add(this.chkbUpdateCurrency);
-            this.gbCurrencies.Controls.Add(this.chkbExchangeLog);
-            this.gbCurrencies.Controls.Add(this.chkbAddCurrency);
-            this.gbCurrencies.Controls.Add(this.chkbCurrencyExchange);
-            this.gbCurrencies.Location = new System.Drawing.Point(41, 429);
-            this.gbCurrencies.Name = "gbCurrencies";
-            this.gbCurrencies.Size = new System.Drawing.Size(382, 194);
-            this.gbCurrencies.TabIndex = 71;
-            this.gbCurrencies.TabStop = false;
-            // 
-            // chkbExchange
-            // 
-            this.chkbExchange.AutoSize = true;
-            this.chkbExchange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbExchange.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbExchange.Location = new System.Drawing.Point(189, 147);
-            this.chkbExchange.Name = "chkbExchange";
-            this.chkbExchange.Size = new System.Drawing.Size(177, 24);
-            this.chkbExchange.TabIndex = 6;
-            this.chkbExchange.Tag = "ExchangeCurrency";
-            this.chkbExchange.Text = "Exchange Currency";
-            this.chkbExchange.UseVisualStyleBackColor = true;
-            this.chkbExchange.CheckedChanged += new System.EventHandler(this.chkbCurrenciesItems_CheckedChanged);
-            // 
-            // chkbListCurrencies
-            // 
-            this.chkbListCurrencies.AutoSize = true;
-            this.chkbListCurrencies.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbListCurrencies.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbListCurrencies.Location = new System.Drawing.Point(189, 107);
-            this.chkbListCurrencies.Name = "chkbListCurrencies";
-            this.chkbListCurrencies.Size = new System.Drawing.Size(146, 24);
-            this.chkbListCurrencies.TabIndex = 5;
-            this.chkbListCurrencies.Tag = "ListCurrencies";
-            this.chkbListCurrencies.Text = "List Currencies";
-            this.chkbListCurrencies.UseVisualStyleBackColor = true;
-            this.chkbListCurrencies.CheckedChanged += new System.EventHandler(this.chkbCurrenciesItems_CheckedChanged);
-            // 
-            // chkbFindCurrency
-            // 
-            this.chkbFindCurrency.AutoSize = true;
-            this.chkbFindCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbFindCurrency.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbFindCurrency.Location = new System.Drawing.Point(189, 67);
-            this.chkbFindCurrency.Name = "chkbFindCurrency";
-            this.chkbFindCurrency.Size = new System.Drawing.Size(136, 24);
-            this.chkbFindCurrency.TabIndex = 4;
-            this.chkbFindCurrency.Tag = "FindCurrency";
-            this.chkbFindCurrency.Text = "Find Currency";
-            this.chkbFindCurrency.UseVisualStyleBackColor = true;
-            this.chkbFindCurrency.CheckedChanged += new System.EventHandler(this.chkbCurrenciesItems_CheckedChanged);
-            // 
-            // chkbUpdateCurrency
-            // 
-            this.chkbUpdateCurrency.AutoSize = true;
-            this.chkbUpdateCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbUpdateCurrency.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbUpdateCurrency.Location = new System.Drawing.Point(25, 107);
-            this.chkbUpdateCurrency.Name = "chkbUpdateCurrency";
-            this.chkbUpdateCurrency.Size = new System.Drawing.Size(157, 24);
-            this.chkbUpdateCurrency.TabIndex = 3;
-            this.chkbUpdateCurrency.Tag = "UpdateCurrency";
-            this.chkbUpdateCurrency.Text = "Update Currency";
-            this.chkbUpdateCurrency.UseVisualStyleBackColor = true;
-            this.chkbUpdateCurrency.CheckedChanged += new System.EventHandler(this.chkbCurrenciesItems_CheckedChanged);
-            // 
-            // chkbExchangeLog
-            // 
-            this.chkbExchangeLog.AutoSize = true;
-            this.chkbExchangeLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbExchangeLog.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbExchangeLog.Location = new System.Drawing.Point(25, 147);
-            this.chkbExchangeLog.Name = "chkbExchangeLog";
-            this.chkbExchangeLog.Size = new System.Drawing.Size(137, 24);
-            this.chkbExchangeLog.TabIndex = 2;
-            this.chkbExchangeLog.Tag = "ExchangeLog";
-            this.chkbExchangeLog.Text = "Exchange Log";
-            this.chkbExchangeLog.UseVisualStyleBackColor = true;
-            this.chkbExchangeLog.CheckedChanged += new System.EventHandler(this.chkbCurrenciesItems_CheckedChanged);
-            // 
-            // chkbAddCurrency
-            // 
-            this.chkbAddCurrency.AutoSize = true;
-            this.chkbAddCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbAddCurrency.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbAddCurrency.Location = new System.Drawing.Point(25, 67);
-            this.chkbAddCurrency.Name = "chkbAddCurrency";
-            this.chkbAddCurrency.Size = new System.Drawing.Size(133, 24);
-            this.chkbAddCurrency.TabIndex = 1;
-            this.chkbAddCurrency.Tag = "AddCurrency";
-            this.chkbAddCurrency.Text = "Add Currency";
-            this.chkbAddCurrency.UseVisualStyleBackColor = true;
-            this.chkbAddCurrency.CheckedChanged += new System.EventHandler(this.chkbCurrenciesItems_CheckedChanged);
-            // 
-            // chkbCurrencyExchange
-            // 
-            this.chkbCurrencyExchange.AutoSize = true;
-            this.chkbCurrencyExchange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbCurrencyExchange.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbCurrencyExchange.Location = new System.Drawing.Point(25, 27);
-            this.chkbCurrencyExchange.Name = "chkbCurrencyExchange";
-            this.chkbCurrencyExchange.Size = new System.Drawing.Size(177, 24);
-            this.chkbCurrencyExchange.TabIndex = 0;
-            this.chkbCurrencyExchange.Tag = "-1";
-            this.chkbCurrencyExchange.Text = "Currency Exchange";
-            this.chkbCurrencyExchange.UseVisualStyleBackColor = true;
-            this.chkbCurrencyExchange.CheckedChanged += new System.EventHandler(this.chkbCurrencyExchangeFullAccess_CheckedChanged);
-            // 
-            // gbUsers
-            // 
-            this.gbUsers.Controls.Add(this.chkbListUsers);
-            this.gbUsers.Controls.Add(this.chkbFindUser);
-            this.gbUsers.Controls.Add(this.chkbUpdateUser);
-            this.gbUsers.Controls.Add(this.chkbDeleteUser);
-            this.gbUsers.Controls.Add(this.chkbAddUser);
-            this.gbUsers.Controls.Add(this.chkbUsersManagement);
-            this.gbUsers.Location = new System.Drawing.Point(456, 209);
-            this.gbUsers.Name = "gbUsers";
-            this.gbUsers.Size = new System.Drawing.Size(382, 194);
-            this.gbUsers.TabIndex = 70;
-            this.gbUsers.TabStop = false;
-            // 
-            // chkbListUsers
-            // 
-            this.chkbListUsers.AutoSize = true;
-            this.chkbListUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbListUsers.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbListUsers.Location = new System.Drawing.Point(170, 107);
-            this.chkbListUsers.Name = "chkbListUsers";
-            this.chkbListUsers.Size = new System.Drawing.Size(109, 24);
-            this.chkbListUsers.TabIndex = 5;
-            this.chkbListUsers.Tag = "ListUsers";
-            this.chkbListUsers.Text = "List Users";
-            this.chkbListUsers.UseVisualStyleBackColor = true;
-            this.chkbListUsers.CheckedChanged += new System.EventHandler(this.chkbUsersItems_CheckedChanged);
-            // 
-            // chkbFindUser
-            // 
-            this.chkbFindUser.AutoSize = true;
-            this.chkbFindUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbFindUser.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbFindUser.Location = new System.Drawing.Point(170, 67);
-            this.chkbFindUser.Name = "chkbFindUser";
-            this.chkbFindUser.Size = new System.Drawing.Size(104, 24);
-            this.chkbFindUser.TabIndex = 4;
-            this.chkbFindUser.Tag = "FindUser";
-            this.chkbFindUser.Text = "Find User";
-            this.chkbFindUser.UseVisualStyleBackColor = true;
-            this.chkbFindUser.CheckedChanged += new System.EventHandler(this.chkbUsersItems_CheckedChanged);
-            // 
-            // chkbUpdateUser
-            // 
-            this.chkbUpdateUser.AutoSize = true;
-            this.chkbUpdateUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbUpdateUser.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbUpdateUser.Location = new System.Drawing.Point(25, 107);
-            this.chkbUpdateUser.Name = "chkbUpdateUser";
-            this.chkbUpdateUser.Size = new System.Drawing.Size(125, 24);
-            this.chkbUpdateUser.TabIndex = 3;
-            this.chkbUpdateUser.Tag = "UpdateUser";
-            this.chkbUpdateUser.Text = "Update User";
-            this.chkbUpdateUser.UseVisualStyleBackColor = true;
-            this.chkbUpdateUser.CheckedChanged += new System.EventHandler(this.chkbUsersItems_CheckedChanged);
-            // 
-            // chkbDeleteUser
-            // 
-            this.chkbDeleteUser.AutoSize = true;
-            this.chkbDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbDeleteUser.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbDeleteUser.Location = new System.Drawing.Point(25, 147);
-            this.chkbDeleteUser.Name = "chkbDeleteUser";
-            this.chkbDeleteUser.Size = new System.Drawing.Size(121, 24);
-            this.chkbDeleteUser.TabIndex = 2;
-            this.chkbDeleteUser.Tag = "DeleteUser";
-            this.chkbDeleteUser.Text = "Delete User";
-            this.chkbDeleteUser.UseVisualStyleBackColor = true;
-            this.chkbDeleteUser.CheckedChanged += new System.EventHandler(this.chkbUsersItems_CheckedChanged);
-            // 
-            // chkbAddUser
-            // 
-            this.chkbAddUser.AutoSize = true;
-            this.chkbAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbAddUser.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbAddUser.Location = new System.Drawing.Point(25, 67);
-            this.chkbAddUser.Name = "chkbAddUser";
-            this.chkbAddUser.Size = new System.Drawing.Size(101, 24);
-            this.chkbAddUser.TabIndex = 1;
-            this.chkbAddUser.Tag = "AddUser";
-            this.chkbAddUser.Text = "Add User";
-            this.chkbAddUser.UseVisualStyleBackColor = true;
-            this.chkbAddUser.CheckedChanged += new System.EventHandler(this.chkbUsersItems_CheckedChanged);
-            // 
-            // chkbUsersManagement
-            // 
-            this.chkbUsersManagement.AutoSize = true;
-            this.chkbUsersManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbUsersManagement.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbUsersManagement.Location = new System.Drawing.Point(25, 27);
-            this.chkbUsersManagement.Name = "chkbUsersManagement";
-            this.chkbUsersManagement.Size = new System.Drawing.Size(177, 24);
-            this.chkbUsersManagement.TabIndex = 0;
-            this.chkbUsersManagement.Tag = "-1";
-            this.chkbUsersManagement.Text = "Users Management";
-            this.chkbUsersManagement.UseVisualStyleBackColor = true;
-            this.chkbUsersManagement.CheckedChanged += new System.EventHandler(this.chkbUsersManagementFullAccess_CheckedChanged);
-            // 
-            // gbClients
-            // 
-            this.gbClients.Controls.Add(this.chkbListClients);
-            this.gbClients.Controls.Add(this.chkbFindClient);
-            this.gbClients.Controls.Add(this.chkbUpdateClient);
-            this.gbClients.Controls.Add(this.chkbDeleteClient);
-            this.gbClients.Controls.Add(this.chkbAddClient);
-            this.gbClients.Controls.Add(this.chkbClientsManagement);
-            this.gbClients.Location = new System.Drawing.Point(41, 209);
-            this.gbClients.Name = "gbClients";
-            this.gbClients.Size = new System.Drawing.Size(382, 194);
-            this.gbClients.TabIndex = 69;
-            this.gbClients.TabStop = false;
-            // 
-            // chkbListClients
-            // 
-            this.chkbListClients.AutoSize = true;
-            this.chkbListClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbListClients.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbListClients.Location = new System.Drawing.Point(170, 107);
-            this.chkbListClients.Name = "chkbListClients";
-            this.chkbListClients.Size = new System.Drawing.Size(116, 24);
-            this.chkbListClients.TabIndex = 5;
-            this.chkbListClients.Tag = "ListClients";
-            this.chkbListClients.Text = "List Clients";
-            this.chkbListClients.UseVisualStyleBackColor = true;
-            this.chkbListClients.CheckedChanged += new System.EventHandler(this.chkbClientsItems_CheckedChanged);
-            // 
-            // chkbFindClient
-            // 
-            this.chkbFindClient.AutoSize = true;
-            this.chkbFindClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbFindClient.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbFindClient.Location = new System.Drawing.Point(170, 67);
-            this.chkbFindClient.Name = "chkbFindClient";
-            this.chkbFindClient.Size = new System.Drawing.Size(111, 24);
-            this.chkbFindClient.TabIndex = 4;
-            this.chkbFindClient.Tag = "FindClient";
-            this.chkbFindClient.Text = "Find Client";
-            this.chkbFindClient.UseVisualStyleBackColor = true;
-            this.chkbFindClient.CheckedChanged += new System.EventHandler(this.chkbClientsItems_CheckedChanged);
-            // 
-            // chkbUpdateClient
-            // 
-            this.chkbUpdateClient.AutoSize = true;
-            this.chkbUpdateClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbUpdateClient.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbUpdateClient.Location = new System.Drawing.Point(25, 107);
-            this.chkbUpdateClient.Name = "chkbUpdateClient";
-            this.chkbUpdateClient.Size = new System.Drawing.Size(132, 24);
-            this.chkbUpdateClient.TabIndex = 3;
-            this.chkbUpdateClient.Tag = "UpdateClient";
-            this.chkbUpdateClient.Text = "Update Client";
-            this.chkbUpdateClient.UseVisualStyleBackColor = true;
-            this.chkbUpdateClient.CheckedChanged += new System.EventHandler(this.chkbClientsItems_CheckedChanged);
-            // 
-            // chkbDeleteClient
-            // 
-            this.chkbDeleteClient.AutoSize = true;
-            this.chkbDeleteClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbDeleteClient.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbDeleteClient.Location = new System.Drawing.Point(25, 147);
-            this.chkbDeleteClient.Name = "chkbDeleteClient";
-            this.chkbDeleteClient.Size = new System.Drawing.Size(128, 24);
-            this.chkbDeleteClient.TabIndex = 2;
-            this.chkbDeleteClient.Tag = "DeleteClient";
-            this.chkbDeleteClient.Text = "Delete Client";
-            this.chkbDeleteClient.UseVisualStyleBackColor = true;
-            this.chkbDeleteClient.CheckedChanged += new System.EventHandler(this.chkbClientsItems_CheckedChanged);
-            // 
-            // chkbAddClient
-            // 
-            this.chkbAddClient.AutoSize = true;
-            this.chkbAddClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbAddClient.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbAddClient.Location = new System.Drawing.Point(25, 67);
-            this.chkbAddClient.Name = "chkbAddClient";
-            this.chkbAddClient.Size = new System.Drawing.Size(108, 24);
-            this.chkbAddClient.TabIndex = 1;
-            this.chkbAddClient.Tag = "AddClient";
-            this.chkbAddClient.Text = "Add Client";
-            this.chkbAddClient.UseVisualStyleBackColor = true;
-            this.chkbAddClient.CheckedChanged += new System.EventHandler(this.chkbClientsItems_CheckedChanged);
-            // 
-            // chkbClientsManagement
-            // 
-            this.chkbClientsManagement.AutoSize = true;
-            this.chkbClientsManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkbClientsManagement.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.chkbClientsManagement.Location = new System.Drawing.Point(25, 27);
-            this.chkbClientsManagement.Name = "chkbClientsManagement";
-            this.chkbClientsManagement.Size = new System.Drawing.Size(184, 24);
-            this.chkbClientsManagement.TabIndex = 0;
-            this.chkbClientsManagement.Tag = "-1";
-            this.chkbClientsManagement.Text = "Clients Management";
-            this.chkbClientsManagement.UseVisualStyleBackColor = true;
-            this.chkbClientsManagement.CheckedChanged += new System.EventHandler(this.chkbClientsManagementFullAccess_CheckedChanged);
             // 
             // btnSave
             // 
@@ -556,16 +114,6 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(133, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(236, 118);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 65;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -578,66 +126,228 @@
             this.lblTitle.TabIndex = 64;
             this.lblTitle.Text = "User Permissions";
             // 
-            // frmPermissions
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(133, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(236, 118);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.AutoEllipsis = true;
+            this.btnBack.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(103, 654);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(152, 54);
+            this.btnBack.TabIndex = 73;
+            this.btnBack.Text = "Back";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // pnlUserPermissions
+            // 
+            this.pnlUserPermissions.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.pnlUserPermissions.Controls.Add(this.trvPermissions);
+            this.pnlUserPermissions.Controls.Add(this.btnBack);
+            this.pnlUserPermissions.Controls.Add(this.btnSave);
+            this.pnlUserPermissions.Controls.Add(this.pictureBox1);
+            this.pnlUserPermissions.Controls.Add(this.lblTitle);
+            this.pnlUserPermissions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUserPermissions.Location = new System.Drawing.Point(0, 0);
+            this.pnlUserPermissions.Name = "pnlUserPermissions";
+            this.pnlUserPermissions.Size = new System.Drawing.Size(950, 740);
+            this.pnlUserPermissions.TabIndex = 1;
+            // 
+            // trvPermissions
+            // 
+            this.trvPermissions.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.trvPermissions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.trvPermissions.CheckBoxes = true;
+            this.trvPermissions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trvPermissions.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.trvPermissions.ImageIndex = 0;
+            this.trvPermissions.ImageList = this.imageList1;
+            this.trvPermissions.Location = new System.Drawing.Point(210, 162);
+            this.trvPermissions.Name = "trvPermissions";
+            treeNode1.Name = "ndAddClient";
+            treeNode1.Tag = "1";
+            treeNode1.Text = "AddClient";
+            treeNode2.ImageKey = "Delete User Client Icon Ready.png";
+            treeNode2.Name = "ndDeleteClient";
+            treeNode2.Tag = "2";
+            treeNode2.Text = "DeleteClient";
+            treeNode3.ImageKey = "Update Client or User Ready Icon.png";
+            treeNode3.Name = "ndUpdateClient";
+            treeNode3.Tag = "4";
+            treeNode3.Text = "UpdateClient";
+            treeNode4.ImageKey = "List Clients. Icon Readypng.png";
+            treeNode4.Name = "ndListClients";
+            treeNode4.Tag = "8";
+            treeNode4.Text = "ListClients";
+            treeNode5.ImageKey = "Find Client.png";
+            treeNode5.Name = "ndFindClient";
+            treeNode5.Tag = "16";
+            treeNode5.Text = "FindClient";
+            treeNode6.ImageKey = "User Client Management Icon Ready.png";
+            treeNode6.Name = "ndClientsManagement";
+            treeNode6.Tag = "-1";
+            treeNode6.Text = "ClientsManagement";
+            treeNode7.Name = "ndAddUser";
+            treeNode7.Tag = "1";
+            treeNode7.Text = "AddUser";
+            treeNode8.ImageKey = "Delete User Client Icon Ready.png";
+            treeNode8.Name = "ndDeleteUser";
+            treeNode8.Tag = "2";
+            treeNode8.Text = "DeleteUser";
+            treeNode9.ImageKey = "Update Client or User Ready Icon.png";
+            treeNode9.Name = "ndUpdateUser";
+            treeNode9.Tag = "4";
+            treeNode9.Text = "UpdateUser";
+            treeNode10.ImageKey = "List Clients. Icon Readypng.png";
+            treeNode10.Name = "ndListUsers";
+            treeNode10.Tag = "8";
+            treeNode10.Text = "ListUsers";
+            treeNode11.ImageKey = "Find Client.png";
+            treeNode11.Name = "ndFindUser";
+            treeNode11.Tag = "16";
+            treeNode11.Text = "FindUser";
+            treeNode12.ImageIndex = 24;
+            treeNode12.Name = "ndUsersManagement";
+            treeNode12.Tag = "-1";
+            treeNode12.Text = "UsersManagement";
+            treeNode13.ImageKey = "AddNewCurrency icon.png";
+            treeNode13.Name = "ndAddCurrency";
+            treeNode13.Tag = "1";
+            treeNode13.Text = "AddCurrency";
+            treeNode14.ImageKey = "Currency Update Icon Colored.png";
+            treeNode14.Name = "ndUpdateCurrency";
+            treeNode14.Tag = "2";
+            treeNode14.Text = "UpdateCurrency";
+            treeNode15.ImageKey = "List Currencies Icon.png";
+            treeNode15.Name = "ndListCurrencies";
+            treeNode15.Tag = "4";
+            treeNode15.Text = "ListCurrencies";
+            treeNode16.ImageKey = "Find Client.png";
+            treeNode16.Name = "ndFindCurrency";
+            treeNode16.Tag = "8";
+            treeNode16.Text = "FindCurrency";
+            treeNode17.ImageKey = "Currency Exchange Icon Ready.png";
+            treeNode17.Name = "ndExchangeCurrency";
+            treeNode17.Tag = "16";
+            treeNode17.Text = "ExchangeCurrency";
+            treeNode18.ImageKey = "Transfer Log Icon Colored BW.png";
+            treeNode18.Name = "ndExchangeLog";
+            treeNode18.Tag = "32";
+            treeNode18.Text = "ExchangeLog";
+            treeNode19.ImageIndex = 4;
+            treeNode19.Name = "ndCurrencyExchange";
+            treeNode19.Tag = "-1";
+            treeNode19.Text = "CurrencyExchange";
+            treeNode20.ImageKey = "Deposit1 icon.png";
+            treeNode20.Name = "ndDeposit";
+            treeNode20.Tag = "1";
+            treeNode20.Text = "Deposit";
+            treeNode21.ImageKey = "Withdraw Icon.png";
+            treeNode21.Name = "ndWithdraw";
+            treeNode21.Tag = "2";
+            treeNode21.Text = "Withdraw";
+            treeNode22.ImageKey = "List Balances Icon.png";
+            treeNode22.Name = "ndListBalances";
+            treeNode22.Tag = "4";
+            treeNode22.Text = "ListBalances";
+            treeNode23.ImageKey = "Transfer icon Colored.png";
+            treeNode23.Name = "ndTransfer";
+            treeNode23.Tag = "8";
+            treeNode23.Text = "Transfer";
+            treeNode24.ImageKey = "Transfer Log Icon Colored BW.png";
+            treeNode24.Name = "ndTransferLog";
+            treeNode24.Tag = "16";
+            treeNode24.Text = "TransferLog";
+            treeNode25.ImageKey = "Transfer butt Icon.png";
+            treeNode25.Name = "ndTransactions";
+            treeNode25.Tag = "-1";
+            treeNode25.Text = "Transactions";
+            treeNode26.ImageKey = "Bank Logo.ico";
+            treeNode26.Name = "ndFullAccess";
+            treeNode26.Tag = "-1";
+            treeNode26.Text = "FullAccess";
+            this.trvPermissions.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode26});
+            this.trvPermissions.SelectedImageIndex = 0;
+            this.trvPermissions.Size = new System.Drawing.Size(497, 473);
+            this.trvPermissions.TabIndex = 75;
+            this.trvPermissions.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.trvPermissions_AfterCheck);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Add New Client or User Icon Ready.png");
+            this.imageList1.Images.SetKeyName(1, "AddNewCurrency icon.png");
+            this.imageList1.Images.SetKeyName(2, "Bank Logo.ico");
+            this.imageList1.Images.SetKeyName(3, "Colored Stack of Money Icon Ready.png");
+            this.imageList1.Images.SetKeyName(4, "Currency Exchange Icon Ready.png");
+            this.imageList1.Images.SetKeyName(5, "Delete User Client Icon Ready.png");
+            this.imageList1.Images.SetKeyName(6, "Deposit1 icon smaller.png");
+            this.imageList1.Images.SetKeyName(7, "Deposit1 icon.png");
+            this.imageList1.Images.SetKeyName(8, "ExposedPassword.png");
+            this.imageList1.Images.SetKeyName(9, "Find Client.png");
+            this.imageList1.Images.SetKeyName(10, "HiddenPassword.png");
+            this.imageList1.Images.SetKeyName(11, "List Balances Icon.png");
+            this.imageList1.Images.SetKeyName(12, "List Clients. Icon Readypng.png");
+            this.imageList1.Images.SetKeyName(13, "List Currencies Icon.png");
+            this.imageList1.Images.SetKeyName(14, "logout new icon.png");
+            this.imageList1.Images.SetKeyName(15, "Permissions+ Icon edit.png");
+            this.imageList1.Images.SetKeyName(16, "Permissions+ Icon.png");
+            this.imageList1.Images.SetKeyName(17, "Permissions+.ico");
+            this.imageList1.Images.SetKeyName(18, "Save icon small.png");
+            this.imageList1.Images.SetKeyName(19, "Transfer butt Icon.png");
+            this.imageList1.Images.SetKeyName(20, "Transfer icon Colored.png");
+            this.imageList1.Images.SetKeyName(21, "Transfer Log Icon.png");
+            this.imageList1.Images.SetKeyName(22, "Update Client or User Ready Icon.png");
+            this.imageList1.Images.SetKeyName(23, "User Client Management Icon Ready.png");
+            this.imageList1.Images.SetKeyName(24, "User Client Management Logo1.png");
+            this.imageList1.Images.SetKeyName(25, "Withdraw Icon small.png");
+            this.imageList1.Images.SetKeyName(26, "Withdraw Icon.png");
+            this.imageList1.Images.SetKeyName(27, "Currency Update Icon Colored.png");
+            this.imageList1.Images.SetKeyName(28, "Transfer Log Icon Colored BW.png");
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 751);
+            this.ClientSize = new System.Drawing.Size(950, 740);
             this.Controls.Add(this.pnlUserPermissions);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmPermissions";
-            this.Text = "Permissions";
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlUserPermissions.ResumeLayout(false);
             this.pnlUserPermissions.PerformLayout();
-            this.gbTransactions.ResumeLayout(false);
-            this.gbTransactions.PerformLayout();
-            this.gbCurrencies.ResumeLayout(false);
-            this.gbCurrencies.PerformLayout();
-            this.gbUsers.ResumeLayout(false);
-            this.gbUsers.PerformLayout();
-            this.gbClients.ResumeLayout(false);
-            this.gbClients.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlUserPermissions;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.GroupBox gbClients;
-        private System.Windows.Forms.CheckBox chkbAddClient;
-        private System.Windows.Forms.CheckBox chkbClientsManagement;
-        private System.Windows.Forms.GroupBox gbUsers;
-        private System.Windows.Forms.CheckBox chkbListUsers;
-        private System.Windows.Forms.CheckBox chkbFindUser;
-        private System.Windows.Forms.CheckBox chkbUpdateUser;
-        private System.Windows.Forms.CheckBox chkbDeleteUser;
-        private System.Windows.Forms.CheckBox chkbAddUser;
-        private System.Windows.Forms.CheckBox chkbUsersManagement;
-        private System.Windows.Forms.CheckBox chkbListClients;
-        private System.Windows.Forms.CheckBox chkbFindClient;
-        private System.Windows.Forms.CheckBox chkbUpdateClient;
-        private System.Windows.Forms.CheckBox chkbDeleteClient;
-        private System.Windows.Forms.GroupBox gbTransactions;
-        private System.Windows.Forms.CheckBox chkbListBalances;
-        private System.Windows.Forms.CheckBox chkbWithdraw;
-        private System.Windows.Forms.CheckBox chkbTransfer;
-        private System.Windows.Forms.CheckBox chkbTransferLog;
-        private System.Windows.Forms.CheckBox chkbDeposit;
-        private System.Windows.Forms.CheckBox chkbTransactionsManagement;
-        private System.Windows.Forms.GroupBox gbCurrencies;
-        private System.Windows.Forms.CheckBox chkbListCurrencies;
-        private System.Windows.Forms.CheckBox chkbFindCurrency;
-        private System.Windows.Forms.CheckBox chkbUpdateCurrency;
-        private System.Windows.Forms.CheckBox chkbExchangeLog;
-        private System.Windows.Forms.CheckBox chkbAddCurrency;
-        private System.Windows.Forms.CheckBox chkbCurrencyExchange;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.CheckBox chkbFullAcess;
-        private System.Windows.Forms.CheckBox chkbExchange;
+        private System.Windows.Forms.Panel pnlUserPermissions;
+        private System.Windows.Forms.TreeView trvPermissions;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

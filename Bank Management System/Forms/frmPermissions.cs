@@ -1,40 +1,23 @@
-﻿using System;
+﻿using Bank_Business_Logic_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Bank_Business_Logic_Layer;
-using Bank_Management_System.UserControlsWinForms.Users;
 
 namespace Bank_Management_System.Forms
 {
-    public partial class frmPermissions : Form
+    public partial class Form1 : Form
     {
 
-        enum enPermissions
-        {
-            FullAccess = -1, ClientsManagement = 1, UsersManagement = 2, CurrencyExchange = 4, Transactions = 8
-
-            , AddClient = 16, DeleteClient = 32, UpdateClient = 64, ListClients = 128, FindClient = 256
-
-            , AddUser = 512, DeleteUser = 1024, UpdateUser = 2048, ListUsers = 4096, FindUser = 8192,
-
-            AddCurrency = 16384, UpdateCurrency = 32768, ListCurrencies = 65536, FindCurrency = 131072, ExchangeCurrency = 262144,
-            ExchangeLog = 524288,
-
-            Deposit = 1048576, WithDraw = 2097152, ListBalances = 4194304, Transfer = 8388608, TransferLog = 16777216
-        }
-
-
-
+        byte OneTimeSetPermissions = 1;
         enum enMainPermissions
         {
-           FullAceess = -1, ClientsManagement = 1, UsersManagement = 2, CurrencyExchange = 4, Transactions = 8
+            FullAceess = -1, ClientsManagement = 1, UsersManagement = 2, CurrencyExchange = 4, Transactions = 8
         }
 
         enum enClientsManagementPermissions
@@ -53,487 +36,801 @@ namespace Bank_Management_System.Forms
             ExchangeLog = 32
         }
 
-
         enum enTransactionsManagementPermissions
         {
             TransactionsManagementFullAccess = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
         }
 
+        public clsPermissionsBLL PermissionsInfo = new clsPermissionsBLL();
 
-        public clsPermissionsBLL ObjPermissions { set; get; }
-
-
-        bool IsMainItemSelected(enPermissions MainItem)
-        {
-            switch (MainItem)
-            {
-                
-                case enPermissions.ClientsManagement:
-
-                    if (chkbClientsManagement.Checked == true)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
-                case enPermissions.UsersManagement:
-
-                    if (chkbUsersManagement.Checked == true)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                case enPermissions.CurrencyExchange:
-                    if (chkbCurrencyExchange.Checked == true)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                case enPermissions.Transactions:
-                    if (chkbTransactionsManagement.Checked == true)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                default:
-                    return false;
-            }
-        }
-
-        void AddAllClientsSectionPermissions()
-        {
-            this.ObjPermissions.ClientsManagementPermissions = (int)enMainPermissions.ClientsManagement;
-        }
-
-        void AddAllUsersSectionPermissions()
-        {
-            this.ObjPermissions.UsersManagementPermissions = (int)enMainPermissions.UsersManagement;
-        }
-
-        void AddAllCurrenciesSectionPermissions()
-        {
-            this.ObjPermissions.CurrenciesManagementPermissions = (int)enMainPermissions.CurrencyExchange;
-        }
-
-        void AddAllTransactionsSectionPermissions()
-        {
-            this.ObjPermissions.TransactionsManagementPermissions = (int)enMainPermissions.Transactions;
-
-        }
-
-
-
-
-        /*
-        private void CalculatePermissions(CheckBox chkb)
-        {
-
-            switch ((string)chkb.Tag)
-            {
-                case "FullAccess":
-                    this.ObjPermissions = -1;
-                    return;
-                case "ClientsManagement":
-                    AddAllClientsSectionPermissions();
-
-                    return;
-                case "UsersManagement":
-                    AddAllUsersSectionPermissions();
-                    return;
-                case "CurrencyExchange":
-                    AddAllCurrenciesSectionPermissions();
-                    return;
-                case "Transactions":
-                    AddAllTransactionsSectionPermissions();
-                    return;
-                case "AddClient":
-                    if (IsMainItemSelected(enPermissions.ClientsManagement))
-                        this.ObjPermissions += (int)enPermissions.AddClient;
-                    else
-                        this.ObjPermissions += (int)enPermissions.AddClient + (int)enPermissions.ClientsManagement;
-                    return;
-                //AddClient = 16, DeleteClient = 32, UpdateClient = 64, ListClients = 128, FindClient = 256
-                case "DeleteClient":
-
-                    if (IsMainItemSelected(enPermissions.ClientsManagement))
-                        this.ObjPermissions += (int)enPermissions.DeleteClient;
-                    
-                    else
-                        this.ObjPermissions += (int)enPermissions.DeleteClient + (int)enPermissions.ClientsManagement;
-                    
-                    return;
-
-                case "UpdateClient":
-
-                    if (IsMainItemSelected(enPermissions.ClientsManagement))
-                        this.ObjPermissions += (int)enPermissions.UpdateClient;
-                    else
-                        this.ObjPermissions += (int)enPermissions.UpdateClient + (int)enPermissions.ClientsManagement;
-
-                    return;
-
-                case "ListClients":
-
-                    if (IsMainItemSelected(enPermissions.ClientsManagement))
-                        this.ObjPermissions += (int)enPermissions.ListClients;
-
-                    else
-                        this.ObjPermissions += (int)enPermissions.ListClients + (int)enPermissions.ClientsManagement;
-
-                    return;
-                case "FindClient":
-                    if (IsMainItemSelected(enPermissions.ClientsManagement))
-                        this.ObjPermissions += (int)enPermissions.FindClient;
-
-                    else
-                        this.ObjPermissions += (int)enPermissions.FindClient + (int)enPermissions.ClientsManagement;
-                    return;
-
-                    //AddUser = 512, DeleteUser = 1024, UpdateUser = 2048, ListUsers = 4096, FindUser = 8192,
-                case "AddUser":
-                    if (IsMainItemSelected(enPermissions.UsersManagement))
-                        this.ObjPermissions += (int)enPermissions.AddUser;
-
-                    else
-                        this.ObjPermissions += (int)enPermissions.AddUser + (int)enPermissions.UsersManagement;
-                    return;
-
-                case "DeleteUser":
-
-                    if (IsMainItemSelected(enPermissions.UsersManagement))
-                        this.ObjPermissions += (int)enPermissions.DeleteUser;
-                    else
-                        this.ObjPermissions += (int)enPermissions.DeleteUser + (int)enPermissions.UsersManagement;
-
-                    return;
-
-                case "UpdateUser":
-                    if (IsMainItemSelected(enPermissions.UsersManagement))
-                        this.ObjPermissions += (int)enPermissions.UpdateUser;
-                    else
-                        this.ObjPermissions += (int)enPermissions.UpdateUser + (int)enPermissions.UsersManagement;
-                    return;
-
-                case "ListUsers":
-                    if (IsMainItemSelected(enPermissions.UsersManagement))
-                        this.ObjPermissions += (int)enPermissions.ListUsers;
-                    else
-                        this.ObjPermissions += (int)enPermissions.ListUsers + (int)enPermissions.UsersManagement;
-                    return;
-
-                case "FindUser":
-                    if (IsMainItemSelected(enPermissions.UsersManagement))
-                        this.ObjPermissions += (int)enPermissions.FindUser;
-                    else
-                        this.ObjPermissions += (int)enPermissions.FindUser + (int)enPermissions.UsersManagement;
-                    return;
-                //AddCurrency = 16384, UpdateCurrency = 32768, ListCurrencies = 65536, FindCurrency = 131072, ExchangeCurrency = 262144, 
-                //ExchangeLog = 524288,
-                case "AddCurrency":
-                    if (IsMainItemSelected(enPermissions.CurrencyExchange))
-                        this.ObjPermissions += (int)enPermissions.AddCurrency;
-                    else
-                        this.ObjPermissions += (int)enPermissions.AddCurrency + (int)enPermissions.CurrencyExchange;
-                    return;
-                case "UpdateCurrency":
-                    if (IsMainItemSelected(enPermissions.CurrencyExchange))
-                        this.ObjPermissions += (int)enPermissions.UpdateCurrency;
-                    else
-                        this.ObjPermissions += (int)enPermissions.UpdateCurrency + (int)enPermissions.CurrencyExchange;
-                    return;
-                case "ListCurrencies":
-                    if (IsMainItemSelected(enPermissions.CurrencyExchange))
-                        this.ObjPermissions += (int)enPermissions.ListCurrencies;
-                    else
-                        this.ObjPermissions += (int)enPermissions.ListCurrencies + (int)enPermissions.CurrencyExchange;
-                    return;
-                case "FindCurrency":
-                    if (IsMainItemSelected(enPermissions.CurrencyExchange))
-                        this.ObjPermissions += (int)enPermissions.FindCurrency;
-                    else
-                        this.ObjPermissions += (int)enPermissions.FindCurrency + (int)enPermissions.CurrencyExchange;
-                    return;
-                case "ExchangeCurrency":
-                    if (IsMainItemSelected(enPermissions.CurrencyExchange))
-                        this.ObjPermissions += (int)enPermissions.ExchangeCurrency;
-                    else
-                        this.ObjPermissions += (int)enPermissions.ExchangeCurrency + (int)enPermissions.CurrencyExchange;
-                    return;
-                case "ExchangeLog":
-                    if (IsMainItemSelected(enPermissions.CurrencyExchange))
-                        this.ObjPermissions += (int)enPermissions.ExchangeLog;
-                    else
-                        this.ObjPermissions += (int)enPermissions.ExchangeLog + (int)enPermissions.CurrencyExchange;
-                    return;
-                //Deposit = 1048576, WithDraw = 2097152, ListBalances = 4194304, Transfer = 8388608, TransferLog = 16777216
-                case "Deposit":
-                    if (IsMainItemSelected(enPermissions.Transactions))
-                        this.ObjPermissions += (int)enPermissions.Deposit;
-                    else
-                        this.ObjPermissions += (int)enPermissions.Deposit + (int)enPermissions.Transactions;
-                    return;
-                case "WithDraw":
-                    if (IsMainItemSelected(enPermissions.Transactions))
-                        this.ObjPermissions += (int)enPermissions.WithDraw;
-                    else
-                        this.ObjPermissions += (int)enPermissions.WithDraw + (int)enPermissions.Transactions;
-                    return;
-                case "ListBalances":
-                    if (IsMainItemSelected(enPermissions.Transactions))
-                        this.ObjPermissions += (int)enPermissions.ListBalances;
-                    else
-                        this.ObjPermissions += (int)enPermissions.ListBalances + (int)enPermissions.Transactions;
-                    return;
-                case "Transfer":
-                    if (IsMainItemSelected(enPermissions.Transactions))
-                        this.ObjPermissions += (int)enPermissions.Transfer;
-                    else
-                        this.ObjPermissions += (int)enPermissions.Transfer + (int)enPermissions.Transactions;
-                    return;
-                case "TransferLog":
-                    if (IsMainItemSelected(enPermissions.Transactions))
-                        this.ObjPermissions += (int)enPermissions.TransferLog;
-                    else
-                        this.ObjPermissions += (int)enPermissions.TransferLog + (int)enPermissions.Transactions;
-                    return;
-
-                default:
-                    return;
-            }
-
-        }
-        */
-
-        private void CheckAllMainChkBoxes()
-        {
-            chkbClientsManagement.Checked = true;
-            chkbUsersManagement.Checked = true;
-            chkbTransactionsManagement.Checked = true;
-            chkbCurrencyExchange.Checked = true;
-            
-        }
-
-
-        private void CheckAllTransactionsChkBoxes()
-        {
-            chkbDeposit.Checked = true;
-            chkbWithdraw.Checked = true;
-            chkbTransfer.Checked = true;
-            chkbTransferLog.Checked = true;
-            chkbListBalances.Checked = true;
-        }
-
-
-        private void CheckAllCurrenciesChkBoxes()
-        {
-            chkbAddCurrency.Checked = true;
-            chkbFindCurrency.Checked = true;
-            chkbUpdateCurrency.Checked = true;
-            chkbListCurrencies.Checked = true;
-            chkbExchange.Checked = true;
-            chkbExchangeLog.Checked = true;
-        }
-
-        private void CheckAllUsersChkBoxes()
-        {
-            chkbAddUser.Checked = true;
-            chkbDeleteUser.Checked = true;
-            chkbFindUser.Checked = true;    
-            chkbUpdateUser.Checked = true;
-            chkbListUsers.Checked = true;
-
-        }
-
-        private void CheckAllClientsChkBoxes()
-        {
-            chkbAddClient.Checked = true;
-            chkbDeleteClient.Checked = true;
-            chkbFindClient.Checked = true;
-            chkbUpdateClient.Checked = true;
-            chkbListClients.Checked = true;
-        }
-
-
-        private void CheckAllChkBoxes()
-        {
-            CheckAllMainChkBoxes();
-            CheckAllUsersChkBoxes();
-            CheckAllClientsChkBoxes();
-            CheckAllCurrenciesChkBoxes();
-            CheckAllTransactionsChkBoxes();
-        }
-
-        private void UnCheckAllChkBoxes()
-        {
-
-
-        }
-
-
-
-
-        private void DisableAllChkBoxesGroups()
-        {
-            gbClients.Enabled = false;
-            gbUsers.Enabled = false;
-            gbCurrencies.Enabled = false;
-            gbTransactions.Enabled = false;
-        }
-
-        private void EnableAllChkBoxesGroups()
-        {
-            gbClients.Enabled = true;
-            gbUsers.Enabled = true;
-            gbCurrencies.Enabled = true;
-            gbTransactions.Enabled = true;
-        }
-
-        public frmPermissions()
+        public Form1()
         {
             InitializeComponent();
-   
         }
 
-        
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            trvPermissions.ExpandAll();
+            trvPermissions.Focus();
 
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void SetFullAccessPermissions()
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.FullAceess;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.ClientsManagementFullAceess;
+            PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.UsersManagementFullAceess;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.CurrenciesManagementFullAceess;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.TransactionsManagementFullAccess;
         }
 
-        private void chkbFullAccess_CheckedChanged(object sender, EventArgs e)
+        private void UnSetFullAccessPermissions()
         {
-            ObjPermissions.MainPermissions = (int)enMainPermissions.FullAceess; 
-            
-            CheckBox FullAcceesscheckBox = (CheckBox)sender;
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+            PermissionsInfo.UsersManagementPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
 
-            if (FullAcceesscheckBox.Checked == true)
+
+
+
+        //Clients Specific Sections
+        private void SetClientsManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions += (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.ClientsManagementFullAceess;
+        }
+
+        private void UnSetClientsManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+        private void SetAddClientPermissions()
+        {
+            PermissionsInfo.MainPermissions += (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions += (int)enClientsManagementPermissions.AddClient;
+        }
+
+        private void UnSetAddClientPermissions()
+        {
+            if (PermissionsInfo.ClientsManagementPermissions != 0)
             {
-                CheckAllChkBoxes();
-                DisableAllChkBoxesGroups();
+                PermissionsInfo.ClientsManagementPermissions -= (int)enClientsManagementPermissions.AddClient;
             }
             else
             {
-                EnableAllChkBoxesGroups();
+                PermissionsInfo.MainPermissions = 0;
+                PermissionsInfo.ClientsManagementPermissions = 0;
             }
-
-
-
-        }
-
-
-        private void chkbClientsManagementFullAccess_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true)
-            {
-                return;
-            }
-
-
-            ObjPermissions.ClientsManagementPermissions = (int)enClientsManagementPermissions.ClientsManagementFullAceess;
-            CheckAllClientsChkBoxes();
-        }
-
-        private void chkbUsersManagementFullAccess_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true)
-            {
-                return;
-            }
-
-            ObjPermissions.UsersManagementPermissions = (int)enUsersManagementPermissions.UsersManagementFullAceess;
-            CheckAllUsersChkBoxes();
-        }
-
-        private void chkbCurrencyExchangeFullAccess_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true)
-            {
-                return;
-            }
-
-            ObjPermissions.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.CurrenciesManagementFullAceess;
-            CheckAllCurrenciesChkBoxes();
-        }
-
-        private void chkbTransactionsManagementFullAccess_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true)
-            {
-                return;
-            }
-
-            ObjPermissions.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.TransactionsManagementFullAccess;
-            CheckAllTransactionsChkBoxes();
-        }
-
-
-        private void chkbClientsItems_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true || chkbClientsManagement.Checked == true)
-            {
-                return;
-            }
-
-            CheckBox chkb = (CheckBox)sender;
-            
-
-        }
-
-        private void chkbUsersItems_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true || chkbUsersManagement.Checked == true)
-            {
-                return;
-            }
-
-            CheckBox chkb = (CheckBox)sender;
-           
-        }
-
-        private void chkbCurrenciesItems_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkbFullAcess.Checked == true || chkbCurrencyExchange.Checked == true)
-            {
-                return;
-            }
-
-            CheckBox chkb = (CheckBox)sender;
             
         }
 
 
-        private void chkbTransactionsItems_CheckedChanged(object sender, EventArgs e)
+        private void SetDeleteClientPermissions()
         {
-            if (chkbFullAcess.Checked == true || chkbTransactionsManagement.Checked == true)
-            {
-                return;
-            }
-
-            CheckBox chkb = (CheckBox)sender;
-            
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.DeleteClient;
         }
 
-        
+        private void UnSetDeleteClientPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+        private void SetUpdateClientPermissions()
+        {
+
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.UpdateClient;
+
+        }
+
+        private void UnSetUpdateClientPermissions()
+        {
+
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+
+        }
+
+
+        private void SetListClientsPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.ListClients;
+        }
+
+        private void UnSetListClientsPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+        private void SetFindClientPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.FindClient;
+        }
+
+        private void UnSetFindClientPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+        //Users Specific Sections
+        private void SetUsersManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions += (int)enMainPermissions.UsersManagement;
+            PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.UsersManagementFullAceess;
+        }
+
+        private void UnSetUsersManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.UsersManagementPermissions = 0;
+        }
+
+        private void SetAddUserPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.UsersManagement;
+            PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.AddUser;
+        }
+
+        private void UnSetAddUserPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.UsersManagementPermissions = 0;
+        }
+
+
+        private void SetDeleteUserPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.DeleteClient;
+        }
+
+        private void UnSetDeleteUserPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+        private void SetUpdateUserPermissions()
+        {
+
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.UpdateClient;
+
+        }
+
+        private void UnSetUpdateUserPermissions()
+        {
+
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+
+        }
+
+
+        private void SetListUsersPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.ListClients;
+        }
+
+        private void UnSetListUsersPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+        private void SetFindUserPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.ClientsManagement;
+            PermissionsInfo.ClientsManagementPermissions = (int)enClientsManagementPermissions.FindClient;
+        }
+
+        private void UnSetFindUserPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+        }
+
+
+
+        //Currncies Specific Sections
+        private void SetCurrenciesManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.CurrenciesManagementFullAceess;
+        }
+
+        private void UnSetCurrenciesManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+        private void SetAddCurrencyPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.AddCurrency;
+        }
+
+        private void UnSetAddCurrencyPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+
+        private void SetFindCurrencyPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.FindCurrency;
+        }
+
+        private void UnSetFindCurrencyPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+
+        private void SetUpdateCurrencyPermissions()
+        {
+
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.UpdateCurrency;
+
+        }
+
+        private void UnSetUpdateCurrencyPermissions()
+        {
+
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+
+        }
+
+
+        private void SetListCurrenciesPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.ListCurrencies;
+        }
+
+        private void UnSetListCurrenciesPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+
+        private void SetExchangeCurrencyPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.ExchangeCurrency;
+        }
+
+        private void UnSetExchangeCurrencyPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+        private void SetExchangeLogPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+            PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.ExchangeLog;
+        }
+
+        private void UnSetExchangeLogPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+
+        //Transactions Specific Sections
+        private void SetTransactionsManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.Transactions;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.TransactionsManagementFullAccess;
+        }
+
+        private void UnSetTransactionsManagementPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
+
+        private void SetDepositPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.Transactions;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.Deposit;
+        }
+
+        private void UnSetDepositPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
+
+        private void SetWithdrawPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.Transactions;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.WithDraw;
+        }
+
+        private void UnSetWithdrawPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
+
+        private void SetListBalancesPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.Transactions;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.ListBalances;
+        }
+
+        private void UnSetListBalancesPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
+
+        private void SetTransferPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.Transactions;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.Transfer;
+        }
+
+        private void UnSetTransferPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
+
+        private void SetTransferLogPermissions()
+        {
+            PermissionsInfo.MainPermissions = (int)enMainPermissions.Transactions;
+            PermissionsInfo.TransactionsManagementPermissions = (int)enTransactionsManagementPermissions.TransferLog;
+        }
+
+        private void UnSetTransferLogPermissions()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+        }
+
+
+
+
+
+        private void SetPermissions(TreeNode CheckedNode)
+        {
+            switch (CheckedNode.Text)
+            {
+                //Main Permissions
+                case "FullAccess":
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetFullAccessPermissions();
+                        return;
+                    }
+                    SetFullAccessPermissions();
+                    return;
+
+                case "ClientsManagement":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetClientsManagementPermissions();
+                        return;
+                    }
+
+                    SetClientsManagementPermissions();
+                    return;
+
+                case "UsersManagement":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetUsersManagementPermissions();
+                        return;
+                    }
+                    SetUsersManagementPermissions();
+                    return;
+
+                case "CurrencyExchange":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetCurrenciesManagementPermissions();
+                        return;
+                    }
+                    SetCurrenciesManagementPermissions();
+                    return;
+
+                case "Transactions":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetTransactionsManagementPermissions();
+                        return;
+                    }
+                    SetTransactionsManagementPermissions();
+                    return;
+
+
+                //Underlying Sections
+
+                //Clients
+                case "AddClient":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetAddClientPermissions();
+                        return;
+                    }
+                    SetAddClientPermissions();
+                    return;
+
+                case "DeleteClient":
+                    if (CheckedNode.Parent.Checked == true )
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetDeleteClientPermissions();
+                        return;
+                    }
+                    SetDeleteClientPermissions();
+                    return;
+
+                case "UpdateClient":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetUpdateClientPermissions();
+                        return;
+                    }
+                    SetUpdateClientPermissions();
+                    return;
+
+                case "ListClients":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetListClientsPermissions();
+                        return;
+                    }
+                    SetListClientsPermissions();
+
+                    
+                    return;
+
+                case "FindClient":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetFindClientPermissions();
+                        return;
+                    }
+                    SetFindClientPermissions();
+                    return;
+
+
+
+                //Users
+                case "AddUser":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetAddUserPermissions();
+                        return;
+                    }
+                    SetAddUserPermissions();
+                    return;
+
+                case "DeleteUser":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetDeleteUserPermissions();
+                        return;
+                    }
+                    SetDeleteUserPermissions();
+
+                    PermissionsInfo.MainPermissions = (int)enMainPermissions.UsersManagement;
+                    PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.DeleteUser;
+                    return;
+
+                case "UpdateUser":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetUpdateUserPermissions();
+                        return;
+                    }
+                    SetUpdateUserPermissions();
+
+                    PermissionsInfo.MainPermissions = (int)enMainPermissions.UsersManagement;
+                    PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.UpdateUser;
+                    return;
+
+                case "ListUsers":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetListUsersPermissions();
+                        return;
+                    }
+                    SetListUsersPermissions();
+                    PermissionsInfo.MainPermissions = (int)enMainPermissions.UsersManagement;
+                    PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.ListUsers;
+                    return;
+
+                case "FindUser":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetFindUserPermissions();
+                        return;
+                    }
+                    SetFindUserPermissions();
+                    PermissionsInfo.MainPermissions = (int)enMainPermissions.UsersManagement;
+                    PermissionsInfo.UsersManagementPermissions = (int)enUsersManagementPermissions.FindUser;
+                    return;
+
+
+                //Currencies
+                case "AddCurrency":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetAddCurrencyPermissions();
+                        return;
+                    }
+                    SetAddCurrencyPermissions();
+                    
+                    return;
+
+                case "ExchangeCurrency":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetExchangeCurrencyPermissions();
+                        return;
+                    }
+                    SetExchangeCurrencyPermissions();
+                    
+                    return;
+
+                case "UpdateCurrency":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetUpdateCurrencyPermissions();
+                        return;
+                    }
+                    SetUpdateCurrencyPermissions();
+                    PermissionsInfo.MainPermissions = (int)enMainPermissions.CurrencyExchange;
+                    PermissionsInfo.CurrenciesManagementPermissions = (int)enCurrenciesManagementPermissions.UpdateCurrency;
+                    return;
+
+                case "ListCurrencies":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetListCurrenciesPermissions();
+                        return;
+                    }
+                    SetListCurrenciesPermissions();
+                    
+                    return;
+
+                case "FindCurrency":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetFindCurrencyPermissions();
+                        return;
+                    }
+                    SetFindCurrencyPermissions();
+                    
+                    return;
+
+                case "ExchangeLog":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetExchangeLogPermissions();
+                        return;
+                    }
+                    SetExchangeLogPermissions();
+                    
+                    return;
+
+                 //Transactions
+                case "Deposit":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetDepositPermissions();
+                        return;
+                    }
+                    SetDepositPermissions();
+                    
+                    return;
+
+                case "Withdraw":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetWithdrawPermissions();
+                        return;
+                    }
+                    SetWithdrawPermissions();
+                    
+                    return;
+
+                case "ListBalances":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetListBalancesPermissions();
+                        return;
+                    }
+                    SetListBalancesPermissions();
+                    
+                    return;
+
+                case "Transfer":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetTransferPermissions();
+                        return;
+                    }
+                    SetTransferPermissions();
+                    
+                    return;
+
+                case "TransferLog":
+                    if (CheckedNode.Parent.Checked == true)
+                    {
+                        return;
+                    }
+                    if (CheckedNode.Checked == false)
+                    {
+                        UnSetTransferLogPermissions();
+                        return;
+                    }
+                    SetTransferLogPermissions();
+                    
+                    return;
+
+
+                default:
+                    return;
+            }
+
+        }
+
+        private void trvPermissions_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            TreeNode Checkednode = e.Node;
+            //Checkednode.Text;
+
+            SetPermissions(Checkednode);
+            
+            CheckTreeViewNode(e.Node, e.Node.Checked);  
+        }
+
+
+        private void CheckTreeViewNode(TreeNode node, bool isChecked)
+        {
+            foreach (TreeNode item in node.Nodes)
+            {
+                item.Checked = isChecked;
+
+                if (item.Nodes.Count > 0)
+                {
+                    this.CheckTreeViewNode(item, isChecked);
+                }
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            PermissionsInfo.UpdatePermissionsString();
+
+            MessageBox.Show(PermissionsInfo.FullPermissionStr.ToString());
+        }
     }
 }

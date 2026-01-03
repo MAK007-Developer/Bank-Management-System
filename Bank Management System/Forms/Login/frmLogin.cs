@@ -62,6 +62,7 @@ namespace Bank_Management_System
             {
 
                 clsUserControlUtil.LoginUser.RegisterLogin();
+                clsUserControlUtil.SetUserPermissionsDict();
                 frmHome frmHomeBank = new frmHome();
                 frmHomeBank.ShowDialog();
 

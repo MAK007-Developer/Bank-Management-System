@@ -45,15 +45,15 @@ namespace Bank_Management_System.UserControlsWinForms.Users
             
             using (frmPermissions frmGetUserPermissions = new frmPermissions()) 
             {
-                frmGetUserPermissions.ObjPermissions.MainPermissions = Permissions;
+                frmGetUserPermissions.PermissionsInfo.MainPermissions = Permissions;
 
                 if (frmGetUserPermissions.ShowDialog() == DialogResult.OK)
                 {
-                    this.Permissions = frmGetUserPermissions.ObjPermissions.MainPermissions;
+                    this.Permissions = frmGetUserPermissions.PermissionsInfo.MainPermissions;
 
-                    PermissionsStr = frmGetUserPermissions.ObjPermissions.FullPermissionStr;
+                    PermissionsStr = frmGetUserPermissions.PermissionsInfo.FullPermissionStr;
 
-                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.ObjPermissions.FullPermissionStr;
+                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.PermissionsInfo.FullPermissionStr;
                 }
                 else
                 {

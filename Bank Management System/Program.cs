@@ -17,7 +17,7 @@ namespace Bank_Management_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmPermissions());
             //Application.Run(new frmLogin());
         }
     }
