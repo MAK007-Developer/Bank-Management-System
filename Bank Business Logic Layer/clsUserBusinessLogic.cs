@@ -11,22 +11,13 @@ namespace Bank_Business_Logic_Layer
 {
     public class clsUserBusinessLogic : clsPersonBusinessLogic
     {
-
-        
-
         public int UserID { set; get; }
+
         public string UserName { set; get; }
+
         public string Password { set; get; }
+        public string PermissionsString { set; get; }
         public clsPermissionsBLL ObjPermissions { set; get; }
-
-        public int Permissions
-        {
-
-            get;
-            
-            set;
-        }
-
 
         private bool _AddNewUser()
         {
@@ -34,7 +25,7 @@ namespace Bank_Business_Logic_Layer
             //PersonID = clsPersonDataAccess.AddNewPerson(FirstName, LastName, Email, Phone);
 
             this.UserID = clsUserDataAccess.AddNewUser(this.FirstName, this.LastName, this.Email, this.Phone, this.UserName, 
-                this.Password, this.Permissions);
+                this.Password, PermissionsString);
 
             return (this.UserID != -1);
         }
@@ -44,7 +35,7 @@ namespace Bank_Business_Logic_Layer
             //call DataAccess Layer 
 
             return clsUserDataAccess.UpdateUser(this.UserID, this.FirstName, this.LastName, this.Email, 
-                this.Phone, this.Password, this.Permissions);
+                this.Phone, this.Password, PermissionsString);
 
         }
 
@@ -60,28 +51,51 @@ namespace Bank_Business_Logic_Layer
             this.Phone = "";
             this.UserName = string.Empty;
             this.Password = string.Empty;   
-            this.Permissions = 0;
-            
+            this.PermissionsString = "";
 
+            ObjPermissions = new clsPermissionsBLL();
             Mode = enMode.AddNew;
         } 
         
         private clsUserBusinessLogic(int UserID, int PersonID, string FirstName, string LastName, string Email, string Phone, 
-            string UserName, string Password, int Permissions)
+            string UserName, string Password, string PermissionsStr)
         {
             this.UserID = UserID;
             this.UserName = UserName;
             this.Password = Password;
-            this.Permissions = Permissions;
+            this.PermissionsString = PermissionsStr;
             this.PersonID = PersonID;
             this.FirstName = FirstName;
             this.LastName = LastName;
             this.Email = Email;
             this.Phone = Phone;
 
-            //ObjPermissions = clsPermissionsBLL.f
+            string[] arrPermissionsSplitted = SplitPermissionsString();
+
+            ObjPermissions.MainPermissions = Convert.ToInt32(arrPermissionsSplitted[0]);
+            ObjPermissions.ClientsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[1]);
+            ObjPermissions.UsersManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[2]);
+            ObjPermissions.CurrenciesManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[3]);
+            ObjPermissions.TransactionsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[4]);
 
             Mode = enMode.Update;
+        }
+
+
+        private string[] SplitPermissionsString()
+        {
+            string[] PermissionsSplited = { };
+
+            if (string.IsNullOrEmpty(this.PermissionsString))
+            {
+                // Return an empty array if there is no data to split
+                return new string[0];
+            }
+
+
+            PermissionsSplited = this.PermissionsString.Split('#');
+
+            return PermissionsSplited;
         }
 
 
@@ -114,15 +128,14 @@ namespace Bank_Business_Logic_Layer
         public new static clsUserBusinessLogic Find(int UserID)
         {
 
-            string FirstName = "", LastName = "", Email = "", Phone = "", UserName = "", Password = "";
+            string FirstName = "", LastName = "", Email = "", Phone = "", UserName = "", Password = "", PermissionsStr = "";
 
-            int Permissions = 0, PersonID = -1;
+            int PersonID = -1;
 
-            if (clsUserDataAccess.GetUserInfoByID(UserID, ref PersonID, ref FirstName, ref LastName, ref Email, 
-                ref Phone, ref UserName, ref Password, ref Permissions))
+            if (clsUserDataAccess.GetUserInfoByID(UserID, ref PersonID, ref UserName, ref Password, ref FirstName, ref LastName, ref Email, ref Phone, ref PermissionsStr))
 
                 return new clsUserBusinessLogic(UserID, PersonID ,FirstName,  LastName, Email,
-                Phone, UserName, Password, Permissions);
+                Phone, UserName, Password, PermissionsStr);
             else
                 return null;
 
@@ -131,15 +144,15 @@ namespace Bank_Business_Logic_Layer
         public static clsUserBusinessLogic Find(string UserName)
         {
 
-            string FirstName = "", LastName = "", Email = "", Phone = "", Password = "";
+            string FirstName = "", LastName = "", Email = "", Phone = "", Password = "", PermissionsStr = "";
 
-            int Permissions = 0, PersonID = -1, UserID = -1;
+            int PersonID = -1, UserID = -1;
 
             if (clsUserDataAccess.GetUserInfoByUserName(UserName, ref UserID, ref PersonID, ref FirstName, ref LastName, ref Email,
-                ref Phone, ref Password, ref Permissions))
+                ref Phone, ref Password, ref PermissionsStr))
             {
                 return new clsUserBusinessLogic(UserID, PersonID, FirstName, LastName, Email,
-                Phone, UserName, Password, Permissions);
+                Phone, UserName, Password, PermissionsStr);
 
             }
             else
@@ -150,17 +163,14 @@ namespace Bank_Business_Logic_Layer
         public static clsUserBusinessLogic Find(string UserName, string Password)
         {
 
-            string FirstName = "", LastName = "", Email = "", Phone = "";
+            string FirstName = "", LastName = "", Email = "", Phone = "", PermissionsStr = "";
 
-            int Permissions = 0, PersonID = -1, UserID = -1;
+            int PersonID = -1, UserID = -1;
 
             if (clsUserDataAccess.GetUserInfoByUserNameAndPassword(UserName, Password, ref UserID, ref PersonID, ref FirstName, ref LastName, ref Email,
-                ref Phone, ref Permissions))
-            {
+                ref Phone, ref PermissionsStr))
                 return new clsUserBusinessLogic(UserID, PersonID, FirstName, LastName, Email,
-                Phone, UserName, Password, Permissions);
-
-            }
+                                                    Phone, UserName, Password, PermissionsStr);
             else
                 return null;
 
@@ -190,8 +200,6 @@ namespace Bank_Business_Logic_Layer
         {
             return clsUserDataAccess.DoesUserExist(UserName);
         }
-
-
 
         public static int GetUsersCountInSystem()
         {

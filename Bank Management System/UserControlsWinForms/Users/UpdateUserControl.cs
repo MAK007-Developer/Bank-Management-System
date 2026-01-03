@@ -59,7 +59,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
             ToBeUpdatedUser.Email = tbEmail.Text;
             ToBeUpdatedUser.Phone = tbPhone.Text;
             ToBeUpdatedUser.Password = tbPassword.Text;
-            ToBeUpdatedUser.Permissions = this.Permissions;
+            //ToBeUpdatedUser.Permissions = this.Permissions;
 
             if (ToBeUpdatedUser.Save())
             {
@@ -83,7 +83,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
                 tbEmail.Text = ToBeUpdatedUser.Email;
                 tbPhone.Text = ToBeUpdatedUser.Phone;
                 tbPassword.Text = ToBeUpdatedUser.Password;
-                lblPermissions.Text = "Permissions: " + ToBeUpdatedUser.Permissions.ToString();
+                //lblPermissions.Text = "Permissions: " + ToBeUpdatedUser.Permissions.ToString();
             }
             else
             {

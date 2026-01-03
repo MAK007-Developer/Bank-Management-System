@@ -41,7 +41,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
                 tbLastName.Text = UserToFind.LastName;
                 tbEmail.Text = UserToFind.Email;
                 tbPhone.Text = UserToFind.Phone;
-                tbPermissions.Text = UserToFind.Permissions.ToString();
+                //tbPermissions.Text = UserToFind.Permissions.ToString();
                 tbPassword.Text = UserToFind.Password;
 
             }

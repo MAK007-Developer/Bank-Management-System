@@ -73,7 +73,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
             NewUser.Phone = tbPhone.Text;
             NewUser.UserName = tbUserName.Text;
             NewUser.Password = tbPassword.Text;
-            NewUser.Permissions = this.Permissions;
+            //NewUser.Permissions = this.Permissions;
 
             
             if (clsUserBusinessLogic.DoesUserExist(NewUser.UserName))

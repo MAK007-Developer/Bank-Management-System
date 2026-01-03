@@ -42,7 +42,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
                 tbLastName.Text = UserToDelete.LastName;
                 tbEmail.Text = UserToDelete.Email;
                 tbPhone.Text = UserToDelete.Phone;
-                tbPermissions.Text = UserToDelete.Permissions.ToString();
+                //tbPermissions.Text = UserToDelete.Permissions.ToString();
                 tbPassword.Text = UserToDelete.Password;
 
             }

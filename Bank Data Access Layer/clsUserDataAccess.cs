@@ -276,7 +276,7 @@ namespace Bank_Data_Access_Layer
         }
 
         public static bool UpdateUser(int UserID, string NewFirstName, string NewLastName, string NewEmail, string NewPhone,
-        string Password, float PermissionsString)
+        string Password, string PermissionsString)
         {
             int rowsAffected = 0, PersonID = -1;
             SqlConnection connection = new SqlConnection(clsBankDataAccessSettings.ConnectionString);

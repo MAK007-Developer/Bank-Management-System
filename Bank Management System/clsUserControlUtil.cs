@@ -34,21 +34,23 @@ namespace Bank_Management_System
         public static bool DoesUserHavePermissions( clsUserBusinessLogic User, UserControl CurrentControl)
         {
             
-            int ControlPermissionsTag = Convert.ToInt32( CurrentControl.Tag); 
+            //int ControlPermissionsTag = Convert.ToInt32( CurrentControl.Tag);
 
-            if (User.Permissions == -1)
-            {
-                return true;
-            }
+            //if (User.Permissions == -1)
+            //{
+            //    return true;
+            //}
 
-            if ( (User.Permissions & ControlPermissionsTag)  == ControlPermissionsTag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //if ( (User.Permissions & ControlPermissionsTag)  == ControlPermissionsTag)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+
+            return false;
 
         }
 
@@ -56,21 +58,23 @@ namespace Bank_Management_System
         public static bool DoesUserHavePermissionOnThisUserCtrlOrForm(object CurrentControlTag)
         {
 
-            int ControlPermissionsTag = Convert.ToInt32(CurrentControlTag);
+            //int ControlPermissionsTag = Convert.ToInt32(CurrentControlTag);
 
-            if (LoginUser.Permissions == -1)
-            {
-                return true;
-            }
+            //if (LoginUser.Permissions == -1)
+            //{
+            //    return true;
+            //}
 
-            if ((LoginUser.Permissions & ControlPermissionsTag) == ControlPermissionsTag)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //if ((LoginUser.Permissions & ControlPermissionsTag) == ControlPermissionsTag)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+
+            return false;
 
         }
 
