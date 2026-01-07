@@ -35,17 +35,19 @@ namespace Bank_Management_System
         private static void GrantFullAccess()
         {
             /*
-             Indecies and thier meaning:
+             Dictionary Structure:
             
-           static Dictionary<string, bool> PermissionsDict {HasFullAccess, HasClientsFullAccess, HasUsersFullAccess, HasTransactionsFullAccess, HasCurrenciesFullAccess, 
-            HasAddClient, HasDeleteClient, HasUpdateClient, HasListClients, HasFindClient, 
-            HasAddUser, HasDeleteUser, HasUpdateUser, HasListUsers, HasFindUser, 
-            HasAddCurrency, HasUpdateCurrency, HasListCurrencies, HasFindCurrency, HasExchangeLog, HasExchangeCurrency,             
-            HasDeposit, HasWithdraw, HasTransfer, HasListBalances, HasTransferLog}
-
-            [0]: HasFullAccess
-            [1]: HasClientsFullAccess
-
+             PermissionsDict is a Dictionary<string, bool> where:
+             - Key: Permission name as string (e.g., "HasFullAccess", "HasAddClient")
+             - Value: Boolean indicating if permission is granted (true) or denied (false)
+            
+             Keys include:
+             "HasFullAccess", "HasClientsFullAccess", "HasUsersFullAccess", "HasTransactionsFullAccess", 
+             "HasCurrenciesFullAccess", "HasAddClient", "HasDeleteClient", "HasUpdateClient", 
+             "HasListClients", "HasFindClient", "HasAddUser", "HasDeleteUser", "HasUpdateUser", 
+             "HasListUsers", "HasFindUser", "HasAddCurrency", "HasUpdateCurrency", "HasListCurrencies", 
+             "HasFindCurrency", "HasExchangeLog", "HasExchangeCurrency", "HasDeposit", "HasWithdraw", 
+             "HasTransfer", "HasListBalances", "HasTransferLog"
             */
 
             foreach (var item in PermissionsDict)

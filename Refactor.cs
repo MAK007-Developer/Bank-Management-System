@@ -1,4 +1,4 @@
-﻿using Bank_Business_Logic_Layer;
+using Bank_Business_Logic_Layer;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -17,26 +17,7 @@ namespace Bank_Management_System.Forms
         [Flags]
         enum enClientsManagementPermissions
         {
-            None = 0, ClientsManagementFullAceess = -1, AddClient = 1, DeleteClient = 2, UpdateClient = 4, ListClients = 8, FindClient = 16
-        }
-
-        [Flags]
-        enum enUsersManagementPermissions
-        {
-            UsersManagementFullAceess = -1, AddUser = 1, DeleteUser = 2, UpdateUser = 4, ListUsers = 8, FindUser = 16
-        }
-
-        [Flags]
-        enum enCurrenciesManagementPermissions
-        {
-            CurrenciesManagementFullAceess = -1, AddCurrency = 1, UpdateCurrency = 2, ListCurrencies = 4, FindCurrency = 8, ExchangeCurrency = 16,
-            ExchangeLog = 32
-        }
-
-        [Flags]
-        enum enTransactionsManagementPermissions
-        {
-            TransactionsManagementFullAccess = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
+            None = 0, FullAccess = -1, AddClient = 1, DeleteClient = 2, UpdateClient = 4, ListClients = 8, FindClient = 16
         }
 
         // ... (Assume other Enums are defined here with [Flags] as well) ...
@@ -45,8 +26,7 @@ namespace Bank_Management_System.Forms
 
         // 2. Define a delegate (a blueprint for a function) that updates the permissions
         private delegate void PermissionAction(bool isChecked);
-
-
+        
         // 3. The Dictionary acts as our lookup table
         private Dictionary<string, PermissionAction> _permissionMap;
 
@@ -69,18 +49,17 @@ namespace Bank_Management_System.Forms
         {
             _permissionMap = new Dictionary<string, PermissionAction>();
 
-            
             // --- Main Permissions ---
             _permissionMap.Add("FullAccess", (isChecked) => ToggleMainPermission((int)enMainPermissions.FullAccess, isChecked));
-
+            
             // --- Clients Section ---
             // Note: We use a helper 'UpdateClientBit' to reuse logic
-            _permissionMap.Add("ClientsManagement", (isChecked) =>
+            _permissionMap.Add("ClientsManagement", (isChecked) => 
             {
-                // Handle the Main bit
-                UpdateMainBit((int)enMainPermissions.ClientsManagement, isChecked);
-                // Handle the specific full access bit
-                PermissionsInfo.ClientsManagementPermissions = isChecked ? -1 : 0;
+                 // Handle the Main bit
+                 UpdateMainBit((int)enMainPermissions.ClientsManagement, isChecked); 
+                 // Handle the specific full access bit
+                 PermissionsInfo.ClientsManagementPermissions = isChecked ? -1 : 0; 
             });
 
             _permissionMap.Add("AddClient", (c) => UpdateClientBit((int)enClientsManagementPermissions.AddClient, c));
@@ -91,17 +70,17 @@ namespace Bank_Management_System.Forms
 
             // --- Users Section (Example) ---
             // You can easily follow the pattern above for Users, Currencies, etc.
-            _permissionMap.Add("UsersManagement", (isChecked) =>
+             _permissionMap.Add("UsersManagement", (isChecked) => 
             {
-                UpdateMainBit((int)enMainPermissions.UsersManagement, isChecked);
-                PermissionsInfo.UsersManagementPermissions = isChecked ? -1 : 0;
+                 UpdateMainBit((int)enMainPermissions.UsersManagement, isChecked);
+                 PermissionsInfo.UsersManagementPermissions = isChecked ? -1 : 0;
             });
             // ... Add mappings for AddUser, DeleteUser, etc.
         }
 
         // 5. Generic Helpers to handle the Bitwise Math safely
         // This replaces the 50+ Set/Unset methods
-
+        
         private void UpdateMainBit(int flag, bool isChecked)
         {
             if (isChecked)
@@ -181,7 +160,7 @@ namespace Bank_Management_System.Forms
                 item.Checked = isChecked;
                 // Recursive call (visual only)
                 if (item.Nodes.Count > 0) CheckTreeViewNode(item, isChecked);
-
+                
                 // IMPORTANT: When we visually check a child via code, we must also trigger 
                 // the logic for that child.
                 if (_permissionMap.ContainsKey(item.Text))
