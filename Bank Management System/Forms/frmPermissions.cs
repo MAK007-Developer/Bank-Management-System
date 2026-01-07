@@ -68,13 +68,14 @@ namespace Bank_Management_System.Forms
 
         // 4. This method maps the "Text" of the tree node to the logic it performs.
         // If you want to change logic, you only edit this list.
+
         private void InitializePermissionMap()
         {
             _permissionMap = new Dictionary<string, PermissionAction>();
 
             
             // --- Main Permissions ---
-            _permissionMap.Add("FullAccess", (isChecked) => ToggleMainPermission((int)enMainPermissions.FullAccess, isChecked));
+            _permissionMap.Add("FullAccess", (isChecked) => ToggleMainPermission(isChecked));
 
             // --- Clients Section ---
             // Note: We use a helper 'UpdateClientBit' to reuse logic
@@ -215,7 +216,7 @@ namespace Bank_Management_System.Forms
         /// 
         /// All permissions are synchronized to the same state with this operation.
         /// </remarks>
-        private void ToggleMainPermission(int flag, bool isChecked)
+        private void ToggleMainPermission(bool isChecked)
         {
             PermissionsInfo.MainPermissions = isChecked ? -1 : 0;
             PermissionsInfo.ClientsManagementPermissions = isChecked ? -1 : 0;
