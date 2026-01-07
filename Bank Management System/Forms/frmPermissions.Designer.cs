@@ -1,6 +1,6 @@
 ﻿namespace Bank_Management_System.Forms
 {
-    partial class Form1
+    partial class frmPermissions
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermissions));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("AddClient");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("DeleteClient");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("UpdateClient");

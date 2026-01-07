@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Bank_Management_System.Forms
 {
-    public partial class Form1 : Form
+    public partial class frmPermissions : Form
     {
 
         byte OneTimeSetPermissions = 1;
@@ -43,7 +43,7 @@ namespace Bank_Management_System.Forms
 
         public clsPermissionsBLL PermissionsInfo = new clsPermissionsBLL();
 
-        public Form1()
+        public frmPermissions()
         {
             InitializeComponent();
         }
