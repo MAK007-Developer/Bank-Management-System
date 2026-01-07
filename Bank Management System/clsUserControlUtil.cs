@@ -221,6 +221,7 @@ namespace Bank_Management_System
         {
             return (LoginUser.PermissionsInfo.UsersManagementPermissions & (int)enUsersPermission) == (int)enUsersPermission;
         }
+
         private static void SetUsersBoolFlags()
         {
             if (LoginUser.PermissionsInfo.UsersManagementPermissions == 0)
@@ -336,7 +337,7 @@ namespace Bank_Management_System
 
 
         /*
-             Dictionary Structure:
+             Permissions Dictionary Structure:
             
              PermissionsDict is a Dictionary<string, bool> where:
              - Key: Permission name as string (e.g., "HasFullAccess", "HasAddClient")

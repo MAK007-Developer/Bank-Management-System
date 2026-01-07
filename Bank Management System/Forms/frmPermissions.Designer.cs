@@ -325,14 +325,15 @@
             this.imageList1.Images.SetKeyName(27, "Currency Update Icon Colored.png");
             this.imageList1.Images.SetKeyName(28, "Transfer Log Icon Colored BW.png");
             // 
-            // Form1
+            // frmPermissions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 740);
             this.Controls.Add(this.pnlUserPermissions);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmPermissions";
+            this.Text = "Permissions";
             this.Load += new System.EventHandler(this.frmPermissions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlUserPermissions.ResumeLayout(false);
