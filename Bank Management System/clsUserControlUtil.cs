@@ -335,20 +335,28 @@ namespace Bank_Management_System
         }
 
 
+        /*
+             Dictionary Structure:
+            
+             PermissionsDict is a Dictionary<string, bool> where:
+             - Key: Permission name as string (e.g., "HasFullAccess", "HasAddClient")
+             - Value: Boolean indicating if permission is granted (true) or denied (false)
+            
+             Keys include:
+             "HasFullAccess", "HasClientsFullAccess", "HasUsersFullAccess", "HasTransactionsFullAccess", 
+             "HasCurrenciesFullAccess", "HasAddClient", "HasDeleteClient", "HasUpdateClient", 
+             "HasListClients", "HasFindClient", "HasAddUser", "HasDeleteUser", "HasUpdateUser", 
+             "HasListUsers", "HasFindUser", "HasAddCurrency", "HasUpdateCurrency", "HasListCurrencies", 
+             "HasFindCurrency", "HasExchangeLog", "HasExchangeCurrency", "HasDeposit", "HasWithdraw", 
+             "HasTransfer", "HasListBalances", "HasTransferLog"
+            */
+
+
 
         public static void SetUserPermissionsDict()
         {
             /*
-             Indecies and thier meaning:
-            
-            bool[] arrPermissions {HasFullAccess, HasClientsFullAccess, HasUsersFullAccess, HasTransactionsFullAccess, HasCurrenciesFullAccess, 
-            HasAddClient, HasDeleteClient, HasUpdateClient, HasListClients, HasFindClient, 
-            HasAddUser, HasDeleteUser, HasUpdateUser, HasListUsers, HasFindUser, 
-            HasAddCurrency, HasUpdateCurrency, HasListCurrencies, HasFindCurrency, HasExchangeLog, HasExchangeCurrency,             
-            HasDeposit, HasWithdraw, HasTransfer, HasListBalances, HasTransferLog}
-
-            [0]: HasFullAccess
-            [1]: HasClientsFullAccess
+            Test Cases:
 
             m c  u C t
             1#-1#0#0#0

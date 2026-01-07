@@ -59,6 +59,9 @@ namespace Bank_Management_System.Forms
         private void Form1_Load(object sender, EventArgs e)
         {
             trvPermissions.ExpandAll();
+
+
+
             // Optional: If this form is editing an existing user, 
             // you would load their current permissions into the checkboxes here.
         }
@@ -96,6 +99,45 @@ namespace Bank_Management_System.Forms
                 UpdateMainBit((int)enMainPermissions.UsersManagement, isChecked);
                 PermissionsInfo.UsersManagementPermissions = isChecked ? -1 : 0;
             });
+
+            _permissionMap.Add("AddUser", (c) => UpdateUserBit((int)enUsersManagementPermissions.AddUser, c));
+            _permissionMap.Add("DeleteUser", (c) => UpdateUserBit((int)enUsersManagementPermissions.DeleteUser, c));
+            _permissionMap.Add("UpdateUser", (c) => UpdateUserBit((int)enUsersManagementPermissions.UpdateUser, c));
+            _permissionMap.Add("ListUsers", (c) => UpdateUserBit((int)enUsersManagementPermissions.ListUsers, c));
+            _permissionMap.Add("FindUser", (c) => UpdateUserBit((int)enUsersManagementPermissions.FindUser, c));
+
+
+            // --- Currencies Section ---
+
+            _permissionMap.Add("CurrencyExchange", (isChecked) =>
+            {
+                UpdateMainBit((int)enMainPermissions.CurrencyExchange, isChecked);
+                PermissionsInfo.CurrenciesManagementPermissions = isChecked ? -1 : 0;
+            });
+
+            _permissionMap.Add("AddCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.AddCurrency, c));
+            _permissionMap.Add("UpdateCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.UpdateCurrency, c));
+            _permissionMap.Add("ListCurrencies", (c) => UpdateUserBit((int)enCurrenciesManagementPermissions.ListCurrencies, c));
+            _permissionMap.Add("FindCurrency", (c) => UpdateUserBit((int)enCurrenciesManagementPermissions.FindCurrency, c));
+            _permissionMap.Add("ExchangeLog", (c) => UpdateUserBit((int)enCurrenciesManagementPermissions.ExchangeLog, c));
+            _permissionMap.Add("ExchangeCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.ExchangeCurrency, c));
+
+
+            _permissionMap.Add("Transactions", (isChecked) =>
+            {
+                UpdateMainBit((int)enMainPermissions.Transactions, isChecked);
+                PermissionsInfo.TransactionsManagementPermissions = isChecked ? -1 : 0;
+            });
+
+            _permissionMap.Add("Deposit", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.Deposit, c));
+            _permissionMap.Add("WithDraw", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.WithDraw, c));
+            _permissionMap.Add("ListBalances", (c) => UpdateUserBit((int)enTransactionsManagementPermissions.ListBalances, c));
+            _permissionMap.Add("Transfer", (c) => UpdateUserBit((int)enTransactionsManagementPermissions.Transfer, c));
+            _permissionMap.Add("TransferLog", (c) => UpdateUserBit((int)enTransactionsManagementPermissions.TransferLog, c));
+            
+
+
+
             // ... Add mappings for AddUser, DeleteUser, etc.
         }
 
@@ -120,6 +162,40 @@ namespace Bank_Management_System.Forms
             else
                 PermissionsInfo.ClientsManagementPermissions &= ~flag;
         }
+
+        private void UpdateUserBit(int flag, bool isChecked)
+        {
+            // Ensure the parent "Main" permission is updated if a child is checked
+            if (isChecked) UpdateMainBit((int)enMainPermissions.UsersManagement, true);
+
+            if (isChecked)
+                PermissionsInfo.UsersManagementPermissions |= flag;
+            else
+                PermissionsInfo.UsersManagementPermissions &= ~flag;
+        }
+
+        private void UpdateCurrencyBit(int flag, bool isChecked)
+        {
+            // Ensure the parent "Main" permission is updated if a child is checked
+            if (isChecked) UpdateMainBit((int)enMainPermissions.CurrencyExchange, true);
+
+            if (isChecked)
+                PermissionsInfo.CurrenciesManagementPermissions |= flag;
+            else
+                PermissionsInfo.CurrenciesManagementPermissions &= ~flag;
+        }
+
+        private void UpdateTransactionBit(int flag, bool isChecked)
+        {
+            // Ensure the parent "Main" permission is updated if a child is checked
+            if (isChecked) UpdateMainBit((int)enMainPermissions.Transactions, true);
+
+            if (isChecked)
+                PermissionsInfo.TransactionsManagementPermissions |= flag;
+            else
+                PermissionsInfo.TransactionsManagementPermissions &= ~flag;
+        }
+
 
         // Special handler for Full Access as it affects everything
         /// <summary>
