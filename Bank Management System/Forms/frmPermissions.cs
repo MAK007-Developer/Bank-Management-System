@@ -23,20 +23,20 @@ namespace Bank_Management_System.Forms
         [Flags]
         enum enUsersManagementPermissions
         {
-            UsersManagementFullAceess = -1, AddUser = 1, DeleteUser = 2, UpdateUser = 4, ListUsers = 8, FindUser = 16
+            None = 0, UsersManagementFullAceess = -1, AddUser = 1, DeleteUser = 2, UpdateUser = 4, ListUsers = 8, FindUser = 16
         }
 
         [Flags]
         enum enCurrenciesManagementPermissions
         {
-            CurrenciesManagementFullAceess = -1, AddCurrency = 1, UpdateCurrency = 2, ListCurrencies = 4, FindCurrency = 8, ExchangeCurrency = 16,
+            None = 0, CurrenciesManagementFullAceess = -1, AddCurrency = 1, UpdateCurrency = 2, ListCurrencies = 4, FindCurrency = 8, ExchangeCurrency = 16,
             ExchangeLog = 32
         }
 
         [Flags]
         enum enTransactionsManagementPermissions
         {
-            TransactionsManagementFullAccess = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
+            None = 0, TransactionsManagementFullAccess = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
         }
 
         // ... (Assume other Enums are defined here with [Flags] as well) ...
@@ -56,7 +56,7 @@ namespace Bank_Management_System.Forms
             InitializePermissionMap(); // Build the map when form starts
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmPermissions_Load(object sender, EventArgs e)
         {
             trvPermissions.ExpandAll();
 
@@ -69,11 +69,22 @@ namespace Bank_Management_System.Forms
         // 4. This method maps the "Text" of the tree node to the logic it performs.
         // If you want to change logic, you only edit this list.
 
+        private void ResetPermissionsInfo()
+        {
+            PermissionsInfo.MainPermissions = 0;
+            PermissionsInfo.ClientsManagementPermissions = 0;
+            PermissionsInfo.UsersManagementPermissions = 0;
+            PermissionsInfo.TransactionsManagementPermissions = 0;
+            PermissionsInfo.CurrenciesManagementPermissions = 0;
+        }
+
+
         private void InitializePermissionMap()
         {
             _permissionMap = new Dictionary<string, PermissionAction>();
 
-            
+            ResetPermissionsInfo();
+
             // --- Main Permissions ---
             _permissionMap.Add("FullAccess", (isChecked) => ToggleMainPermission(isChecked));
 
@@ -118,11 +129,14 @@ namespace Bank_Management_System.Forms
 
             _permissionMap.Add("AddCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.AddCurrency, c));
             _permissionMap.Add("UpdateCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.UpdateCurrency, c));
-            _permissionMap.Add("ListCurrencies", (c) => UpdateUserBit((int)enCurrenciesManagementPermissions.ListCurrencies, c));
-            _permissionMap.Add("FindCurrency", (c) => UpdateUserBit((int)enCurrenciesManagementPermissions.FindCurrency, c));
-            _permissionMap.Add("ExchangeLog", (c) => UpdateUserBit((int)enCurrenciesManagementPermissions.ExchangeLog, c));
+            _permissionMap.Add("ListCurrencies", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.ListCurrencies, c));
+            _permissionMap.Add("FindCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.FindCurrency, c));
+            _permissionMap.Add("ExchangeLog", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.ExchangeLog, c));
             _permissionMap.Add("ExchangeCurrency", (c) => UpdateCurrencyBit((int)enCurrenciesManagementPermissions.ExchangeCurrency, c));
 
+
+
+            // --- Transactions Section ---
 
             _permissionMap.Add("Transactions", (isChecked) =>
             {
@@ -132,14 +146,10 @@ namespace Bank_Management_System.Forms
 
             _permissionMap.Add("Deposit", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.Deposit, c));
             _permissionMap.Add("WithDraw", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.WithDraw, c));
-            _permissionMap.Add("ListBalances", (c) => UpdateUserBit((int)enTransactionsManagementPermissions.ListBalances, c));
-            _permissionMap.Add("Transfer", (c) => UpdateUserBit((int)enTransactionsManagementPermissions.Transfer, c));
-            _permissionMap.Add("TransferLog", (c) => UpdateUserBit((int)enTransactionsManagementPermissions.TransferLog, c));
+            _permissionMap.Add("ListBalances", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.ListBalances, c));
+            _permissionMap.Add("Transfer", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.Transfer, c));
+            _permissionMap.Add("TransferLog", (c) => UpdateTransactionBit((int)enTransactionsManagementPermissions.TransferLog, c));
             
-
-
-
-            // ... Add mappings for AddUser, DeleteUser, etc.
         }
 
         // 5. Generic Helpers to handle the Bitwise Math safely
@@ -202,7 +212,6 @@ namespace Bank_Management_System.Forms
         /// <summary>
         /// Toggles all main permission flags to either fully enabled or fully disabled based on the checked state.
         /// </summary>
-        /// <param name="flag">An integer flag parameter (currently unused in the implementation).</param>
         /// <param name="isChecked">A boolean value indicating whether permissions should be enabled (true) or disabled (false).
         /// When true, all permissions are set to -1 (fully enabled/granted).
         /// When false, all permissions are set to 0 (fully disabled/denied).</param>
