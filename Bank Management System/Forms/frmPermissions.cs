@@ -39,8 +39,7 @@ namespace Bank_Management_System.Forms
             None = 0, TransactionsManagementFullAccess = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
         }
 
-        // ... (Assume other Enums are defined here with [Flags] as well) ...
-
+        
         public clsPermissionsBLL PermissionsInfo = new clsPermissionsBLL();
 
         // 2. Define a delegate (a blueprint for a function) that updates the permissions
@@ -69,22 +68,14 @@ namespace Bank_Management_System.Forms
         // 4. This method maps the "Text" of the tree node to the logic it performs.
         // If you want to change logic, you only edit this list.
 
-        private void ResetPermissionsInfo()
-        {
-            PermissionsInfo.MainPermissions = 0;
-            PermissionsInfo.ClientsManagementPermissions = 0;
-            PermissionsInfo.UsersManagementPermissions = 0;
-            PermissionsInfo.TransactionsManagementPermissions = 0;
-            PermissionsInfo.CurrenciesManagementPermissions = 0;
-        }
+        
 
 
         private void InitializePermissionMap()
         {
             _permissionMap = new Dictionary<string, PermissionAction>();
 
-            ResetPermissionsInfo();
-
+            
             // --- Main Permissions ---
             _permissionMap.Add("FullAccess", (isChecked) => ToggleMainPermission(isChecked));
 
@@ -153,8 +144,7 @@ namespace Bank_Management_System.Forms
         }
 
         // 5. Generic Helpers to handle the Bitwise Math safely
-        // This replaces the 50+ Set/Unset methods
-
+       
         private void UpdateMainBit(int flag, bool isChecked)
         {
             if (isChecked)
