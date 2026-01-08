@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMangementControl));
             this.pnlClientManagement = new System.Windows.Forms.Panel();
             this.btnDeleteClient = new System.Windows.Forms.Button();
@@ -38,8 +37,6 @@
             this.btnAddClient = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlClientManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +44,6 @@
             // pnlClientManagement
             // 
             this.pnlClientManagement.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.pnlClientManagement.Controls.Add(this.guna2TextBox1);
             this.pnlClientManagement.Controls.Add(this.btnDeleteClient);
             this.pnlClientManagement.Controls.Add(this.btnUpdateClient);
             this.pnlClientManagement.Controls.Add(this.btnFindClient);
@@ -183,30 +179,6 @@
             this.lblTitle.TabIndex = 49;
             this.lblTitle.Text = "Client Management";
             // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.AutoRoundedCorners = true;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.IconLeft = global::Bank_Management_System.Properties.Resources.HiddenPassword;
-            this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.guna2TextBox1.Location = new System.Drawing.Point(758, 124);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(229, 48);
-            this.guna2TextBox1.TabIndex = 58;
-            this.guna2TextBox1.Tag = "h";
-            this.guna2TextBox1.IconLeftClick += new System.EventHandler(this.guna2TextBox1_IconLeftClick);
-            // 
             // ClientMangementControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,7 +205,5 @@
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblTitle;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
