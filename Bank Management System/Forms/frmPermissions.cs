@@ -268,6 +268,14 @@ namespace Bank_Management_System.Forms
         {
             PermissionsInfo.UpdatePermissionsString();
             MessageBox.Show(PermissionsInfo.FullPermissionStr.ToString());
+
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
 
         clsUserBusinessLogic ToBeUpdatedUser;
 
-        public int Permissions = 0;
+        public string PermissionsStr = string.Empty;
 
         public UpdateUserControl()
         {
@@ -37,11 +37,11 @@ namespace Bank_Management_System.UserControlsWinForms.Users
         {
             using (frmPermissions frmGetUserPermissions = new frmPermissions())
             {
-                frmGetUserPermissions.PermissionsInfo.MainPermissions = Permissions;
+                
                 if (frmGetUserPermissions.ShowDialog() == DialogResult.OK)
                 {
-                    this.Permissions = frmGetUserPermissions.PermissionsInfo.MainPermissions;
-                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.PermissionsInfo.ToString();
+                    this.PermissionsStr = frmGetUserPermissions.PermissionsInfo.FullPermissionStr;
+                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.PermissionsInfo.FullPermissionStr.ToString();
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
             ToBeUpdatedUser.Email = tbEmail.Text;
             ToBeUpdatedUser.Phone = tbPhone.Text;
             ToBeUpdatedUser.Password = tbPassword.Text;
-            //ToBeUpdatedUser.Permissions = this.Permissions;
+            ToBeUpdatedUser.PermissionsString = this.PermissionsStr;
 
             if (ToBeUpdatedUser.Save())
             {
@@ -83,6 +83,8 @@ namespace Bank_Management_System.UserControlsWinForms.Users
                 tbEmail.Text = ToBeUpdatedUser.Email;
                 tbPhone.Text = ToBeUpdatedUser.Phone;
                 tbPassword.Text = ToBeUpdatedUser.Password;
+                this.PermissionsStr = ToBeUpdatedUser.PermissionsString;
+                lblPermissions.Text = "Permissions: " + ToBeUpdatedUser.PermissionsString;
                 //lblPermissions.Text = "Permissions: " + ToBeUpdatedUser.Permissions.ToString();
             }
             else
