@@ -113,9 +113,16 @@ namespace Bank_Management_System
         {
             PermissionsDict.Add("HasFullAccess", false);
             PermissionsDict.Add("HasClientsScreenAccess", false);
+            PermissionsDict.Add("HasUsersScreenAccess", false);
+            PermissionsDict.Add("HasCurrenciesScreenAccess", false);
+            PermissionsDict.Add("HasTransactionsScreenAccess", false);
+
+
+            PermissionsDict.Add("HasClientsAccess", false);
             PermissionsDict.Add("HasUsersFullAccess", false);
             PermissionsDict.Add("HasCurrenciesFullAccess", false);
             PermissionsDict.Add("HasTransactionsFullAccess", false);
+
 
             PermissionsDict.Add("HasAddClient", false);
             PermissionsDict.Add("HasDeleteClient", false);
@@ -150,16 +157,16 @@ namespace Bank_Management_System
                 case clsPermissionsBLL.enMainPermissions.FullAceess:
                     GrantFullAccess();
                     break;
-                case clsPermissionsBLL.enMainPermissions.ClientsManagement:
+                case clsPermissionsBLL.enMainPermissions.ClientsManagementScreen:
                     PermissionsDict[""] = true;
                     break;
-                case clsPermissionsBLL.enMainPermissions.UsersManagement:
+                case clsPermissionsBLL.enMainPermissions.UsersManagementScreen:
                     PermissionsDict[""] = true;
                     break;
-                case clsPermissionsBLL.enMainPermissions.CurrencyExchange:
+                case clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen:
                     PermissionsDict[""] = true;
                     break;
-                case clsPermissionsBLL.enMainPermissions.Transactions:
+                case clsPermissionsBLL.enMainPermissions.TransactionsScreen:
                     PermissionsDict[""] = true;
                     break;
                 default:
@@ -186,19 +193,19 @@ namespace Bank_Management_System
                 return;
             }
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.ClientsManagement))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.ClientsManagementScreen))
                 GrantClientsFullAccess();
             
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.UsersManagement))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.UsersManagementScreen))
                 GrantUsersFullAccess();
             
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.CurrencyExchange))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen))
                 GrantCurrenciesFullAccess();
             
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.Transactions))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.TransactionsScreen))
                 GrantTransactionsFullAccess();
             
 
@@ -334,7 +341,7 @@ namespace Bank_Management_System
                 return;
 
 
-            if (LoginUser.PermissionsInfo.TransactionsManagementPermissions == (int)clsPermissionsBLL.enTransactionsManagementPermissions.TransactionsManagement)
+            if (LoginUser.PermissionsInfo.TransactionsManagementPermissions == (int)clsPermissionsBLL.enTransactionsManagementPermissions.TransactionsManagementFullAccess)
             {
                 GrantTransactionsFullAccess();
                 return;
