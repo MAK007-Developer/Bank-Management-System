@@ -74,7 +74,7 @@ namespace Bank_Management_System.UserControlsWinForms.CurrencyExchange
 
         private void ExchangeControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
+            if (clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
                 return;
 
             if (!clsUserControlUtil.PermissionsDict["HasExchangeCurrency"])

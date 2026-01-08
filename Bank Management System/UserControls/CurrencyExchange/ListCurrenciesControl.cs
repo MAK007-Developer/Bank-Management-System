@@ -43,17 +43,14 @@ namespace Bank_Management_System.UserControlsWinForms.CurrencyExchange
 
         private void ListCurrenciesControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
-                return;
-
-            if (!clsUserControlUtil.PermissionsDict["HasListCurrencies"])
+            
+            if (!clsUserControlUtil.PermissionsDict["HasListCurrencies"] && !clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
 
             dgvListCurrencies.DataSource = clsCurrencyBusinessLogic.GetAllCurrencies();
         }

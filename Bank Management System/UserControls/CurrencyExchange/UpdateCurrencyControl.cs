@@ -85,7 +85,7 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void UpdateCurrencyControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
+            if (clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
                 return;
 
             if (!clsUserControlUtil.PermissionsDict["HasUpdateCurrency"])

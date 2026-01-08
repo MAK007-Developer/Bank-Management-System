@@ -386,7 +386,6 @@ namespace Bank_Management_System
             */
 
 
-
         public static void SetUserPermissionsDict()
         {
             /*
