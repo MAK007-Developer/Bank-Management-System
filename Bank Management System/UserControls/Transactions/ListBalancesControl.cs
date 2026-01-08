@@ -49,7 +49,8 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void ListBalancesControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasListBalances"])
+            
+            if (!clsUserControlUtil.PermissionsDict["HasListBalances"] && !clsUserControlUtil.PermissionsDict["HasTransactionsFullAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

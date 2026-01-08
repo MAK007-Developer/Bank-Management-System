@@ -91,6 +91,10 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void DepositControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasTransactionsFullAccess"])
+                return;
+
+
             if (!clsUserControlUtil.PermissionsDict["HasDeposit"])
             {
                 this.Enabled = false;

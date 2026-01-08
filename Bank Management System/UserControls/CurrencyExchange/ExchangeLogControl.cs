@@ -33,7 +33,16 @@ namespace Bank_Management_System.UserControlsWinForms.CurrencyExchange
 
         private void ExchangeLogControl_Load(object sender, EventArgs e)
         {
-            dvgExchangeLog.DataSource = clsCurrencyBusinessLogic.GetAllExchanges();
+            if (clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"] || clsUserControlUtil.PermissionsDict["HasExchangeLog"])
+                dvgExchangeLog.DataSource = clsCurrencyBusinessLogic.GetAllExchanges();
+
+            else
+            {
+                this.Enabled = false;
+                MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

@@ -43,6 +43,9 @@ namespace Bank_Management_System.UserControlsWinForms.CurrencyExchange
 
         private void ListCurrenciesControl_Load(object sender, EventArgs e)
         {
+            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasListCurrencies"])
             {
                 this.Enabled = false;

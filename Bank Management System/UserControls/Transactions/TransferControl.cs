@@ -106,6 +106,9 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void TransferControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasTransactionsFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasTransfer"])
             {
                 this.Enabled = false;

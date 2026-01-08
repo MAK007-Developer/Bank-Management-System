@@ -42,7 +42,8 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void TransferLogControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasTransferLog"])
+            
+            if (!clsUserControlUtil.PermissionsDict["HasTransferLog"] && !clsUserControlUtil.PermissionsDict["HasTransactionsFullAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

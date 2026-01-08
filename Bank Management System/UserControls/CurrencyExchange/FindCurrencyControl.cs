@@ -63,6 +63,9 @@ namespace Bank_Management_System.UserControlsWinForms.CurrencyExchange
 
         private void FindCurrencyControl_Load(object sender, EventArgs e)
         {
+            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasFindCurrency"])
             {
                 this.Enabled = false;

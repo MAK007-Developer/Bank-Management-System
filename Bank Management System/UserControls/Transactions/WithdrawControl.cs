@@ -94,6 +94,10 @@ namespace Bank_Management_System.UserControlsWinForms.Transactions
 
         private void WithdrawControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasTransactionsFullAccess"])
+                return;
+
+
             if (!clsUserControlUtil.PermissionsDict["HasWithdraw"])
             {
                 this.Enabled = false;
