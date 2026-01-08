@@ -41,7 +41,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
                 if (frmGetUserPermissions.ShowDialog() == DialogResult.OK)
                 {
                     this.PermissionsStr = frmGetUserPermissions.PermissionsInfo.FullPermissionStr;
-                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.PermissionsInfo.ToString();
+                    lblPermissions.Text = "Permissions: " + frmGetUserPermissions.PermissionsInfo.FullPermissionStr.ToString();
                 }
                 else
                 {
@@ -83,6 +83,8 @@ namespace Bank_Management_System.UserControlsWinForms.Users
                 tbEmail.Text = ToBeUpdatedUser.Email;
                 tbPhone.Text = ToBeUpdatedUser.Phone;
                 tbPassword.Text = ToBeUpdatedUser.Password;
+                this.PermissionsStr = ToBeUpdatedUser.PermissionsString;
+                lblPermissions.Text = "Permissions: " + ToBeUpdatedUser.PermissionsString;
                 //lblPermissions.Text = "Permissions: " + ToBeUpdatedUser.Permissions.ToString();
             }
             else

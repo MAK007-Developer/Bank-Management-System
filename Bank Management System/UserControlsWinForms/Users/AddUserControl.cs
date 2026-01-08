@@ -22,7 +22,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
 
         public string PermissionsStr = string.Empty;
 
-        string PermissionsStr;
+       
 
         public AddUserControl(clsUserBusinessLogic LoginUser)
         {

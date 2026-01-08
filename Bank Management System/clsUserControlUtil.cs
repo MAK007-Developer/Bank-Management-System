@@ -50,10 +50,12 @@ namespace Bank_Management_System
              "HasTransfer", "HasListBalances", "HasTransferLog"
             */
 
-            foreach (var item in PermissionsDict)
-            {
-                PermissionsDict[item.Key] = true;
-            }
+            //foreach (var item in PermissionsDict)
+            //{
+            //    PermissionsDict[item.Key] = true;
+            //}
+
+            PermissionsDict.Keys.ToList().ForEach(key => PermissionsDict[key] = true);
 
             //PermissionsDict["HasFullAccess"] = true;
 

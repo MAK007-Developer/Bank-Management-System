@@ -72,6 +72,8 @@ namespace Bank_Business_Logic_Layer
 
             string[] arrPermissionsSplitted = SplitPermissionsString();
 
+            PermissionsInfo = new clsPermissionsBLL();
+
             PermissionsInfo.MainPermissions = Convert.ToInt32(arrPermissionsSplitted[0]);
             PermissionsInfo.ClientsManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[1]);
             PermissionsInfo.UsersManagementPermissions = Convert.ToInt32(arrPermissionsSplitted[2]);
@@ -148,8 +150,8 @@ namespace Bank_Business_Logic_Layer
 
             int PersonID = -1, UserID = -1;
 
-            if (clsUserDataAccess.GetUserInfoByUserName(UserName, ref UserID, ref PersonID, ref FirstName, ref LastName, ref Email,
-                ref Phone, ref Password, ref PermissionsStr))
+            if (clsUserDataAccess.GetUserInfoByUserName(UserName, ref UserID, ref PersonID, ref Password, ref FirstName, ref LastName, ref Email,
+                ref Phone,  ref PermissionsStr))
             {
                 return new clsUserBusinessLogic(UserID, PersonID, FirstName, LastName, Email,
                 Phone, UserName, Password, PermissionsStr);
