@@ -74,6 +74,9 @@ namespace Bank_Management_System.UserControlsWinForms.Clients
 
         private void UpdateClientControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasClientsFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasUpdateClient"])
             {
                 this.Enabled = false;

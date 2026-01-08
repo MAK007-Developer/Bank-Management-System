@@ -70,6 +70,9 @@ namespace Bank_Management_System.UserControlsWinForms.Clients
 
         private void DeleteClientControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasClientsFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasDeleteClient"])
             {
                 this.Enabled = false;

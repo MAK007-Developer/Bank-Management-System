@@ -62,6 +62,9 @@ namespace Bank_Management_System.UserControlsWinForms.Clients
 
         private void FindClientControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasClientsFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasFindClient"])
             {
                 this.Enabled = false;

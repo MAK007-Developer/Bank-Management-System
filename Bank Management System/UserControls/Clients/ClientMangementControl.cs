@@ -33,9 +33,6 @@ namespace Bank_Management_System.UserControlsWinForms
             
         }
 
-
-
-
         private void btnAddClient_Click(object sender, EventArgs e)
         {
             ClientControl.ShowUserControl(new AddClientControl(LoginUser));
@@ -65,7 +62,7 @@ namespace Bank_Management_System.UserControlsWinForms
         private void ClientMangementControl_Load(object sender, EventArgs e)
         {
 
-            if (!clsUserControlUtil.PermissionsDict["HasClientsFullAccess"])
+            if (!clsUserControlUtil.PermissionsDict["HasClientsScreenAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",
@@ -76,42 +73,6 @@ namespace Bank_Management_System.UserControlsWinForms
 
         }
 
-        private void tbSit1_IconLeftClick(object sender, EventArgs e)
-        {
-            
-            
-
-        }
-
-        private void ToggleHideShowPassword(bool HideShowPasswordToggle)
-        {
-
-            if (!HideShowPasswordToggle)
-            {
-                guna2TextBox1.IconLeft = Resources.ExposedPassword;
-                guna2TextBox1.Tag = "e";
-                guna2TextBox1.PasswordChar = '\0';
-
-            }
-            else
-            {
-                guna2TextBox1.IconLeft = Resources.HiddenPassword;
-                guna2TextBox1.Tag = "h";
-                guna2TextBox1.PasswordChar = '*';
-
-            }
-
-        }
-
-        private void guna2TextBox1_IconLeftClick(object sender, EventArgs e)
-        {
-            //(string)guna2TextBox1.Tag == "h" ? guna2TextBox1.IconLeft = Resources.ExposedPassword : guna2TextBox1.IconLeft = Resources.ExposedPassword;
-            bool HideShowPasswordToggle = ((string)guna2TextBox1.Tag == "h") ? false : true;
-
-            ToggleHideShowPassword(HideShowPasswordToggle);
-
-            
-
-        }
+        
     }
 }

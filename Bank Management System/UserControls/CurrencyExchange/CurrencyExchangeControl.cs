@@ -77,7 +77,7 @@ namespace Bank_Management_System.UserControlsWinForms
         private void CurrencyExchangeControl_Load(object sender, EventArgs e)
         {
 
-            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesFullAccess"])
+            if (!clsUserControlUtil.PermissionsDict["HasCurrenciesScreenAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

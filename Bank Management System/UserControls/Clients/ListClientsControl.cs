@@ -37,6 +37,9 @@ namespace Bank_Management_System.UserControlsWinForms
 
         private void ListClientsControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasClientsFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasListCurrencies"])
             {
                 this.Enabled = false;

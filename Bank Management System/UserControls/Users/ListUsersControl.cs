@@ -38,7 +38,20 @@ namespace Bank_Management_System.UserControlsWinForms
 
         private void ListUsersControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasListUsers"])
+            
+
+            /*
+             
+            Case 1: HasListUsers = true , HasUsersFullAccess = false
+
+            Case 2: HasListUsers = true , HasUsersFullAccess = true
+            
+            Case 3: HasListUsers = false , HasUsersFullAccess = true
+             
+             
+             */
+
+            if (!clsUserControlUtil.PermissionsDict["HasListUsers"] && !clsUserControlUtil.PermissionsDict["HasUsersFullAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

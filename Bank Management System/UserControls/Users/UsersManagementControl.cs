@@ -61,7 +61,7 @@ namespace Bank_Management_System.UserControlsWinForms
 
         private void UsersManagementControl_Load(object sender, EventArgs e)
         {
-            if (!clsUserControlUtil.PermissionsDict["HasUsersFullAccess"])
+            if (!clsUserControlUtil.PermissionsDict["HasUsersScreenAccess"])
             {
                 this.Enabled = false;
                 MessageBox.Show("You don't have permission to access this section contact your admin", "No Permission Found",

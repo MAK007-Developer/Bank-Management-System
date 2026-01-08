@@ -98,6 +98,9 @@ namespace Bank_Management_System.UserControlsWinForms.Users
 
         private void AddUserControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasUsersFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasAddUser"])
             {
                 this.Enabled = false;

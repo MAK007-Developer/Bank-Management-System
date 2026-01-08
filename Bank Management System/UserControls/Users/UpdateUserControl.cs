@@ -96,6 +96,9 @@ namespace Bank_Management_System.UserControlsWinForms.Users
 
         private void UpdateUserControl_Load(object sender, EventArgs e)
         {
+            if (clsUserControlUtil.PermissionsDict["HasUsersFullAccess"])
+                return;
+
             if (!clsUserControlUtil.PermissionsDict["HasUpdateUser"])
             {
                 this.Enabled = false;
