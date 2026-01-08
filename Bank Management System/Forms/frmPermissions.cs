@@ -68,9 +68,6 @@ namespace Bank_Management_System.Forms
         // 4. This method maps the "Text" of the tree node to the logic it performs.
         // If you want to change logic, you only edit this list.
 
-        
-
-
         private void InitializePermissionMap()
         {
             _permissionMap = new Dictionary<string, PermissionAction>();
