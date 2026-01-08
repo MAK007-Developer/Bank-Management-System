@@ -11,7 +11,7 @@ namespace Bank_Business_Logic_Layer
 
         public enum enMainPermissions
         {
-            FullAceess = -1, ClientsManagement = 1, UsersManagement = 2, CurrencyExchange = 4, Transactions = 8
+            FullAceess = -1, ClientsManagementScreen = 1, UsersManagementScreen = 2, CurrencyExchangeScreen = 4, TransactionsScreen = 8
         }
 
         public enum enClientsManagementPermissions
@@ -33,7 +33,7 @@ namespace Bank_Business_Logic_Layer
 
         public enum enTransactionsManagementPermissions
         {
-            TransactionsManagement = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
+            TransactionsManagementFullAccess = -1, Deposit = 1, WithDraw = 2, ListBalances = 4, Transfer = 8, TransferLog = 16
         }
 
         public int MainPermissions { set; get; }
@@ -66,16 +66,11 @@ namespace Bank_Business_Logic_Layer
                 UserPer.ToString() + "#" + CurrencyPer.ToString() + "#" + TransactionPer.ToString();
         }
 
-        public clsPermissionsBLL( clsPermissionsBLL ObjPermission )
-        {
-            ObjPermission = new clsPermissionsBLL(ObjPermission.MainPermissions, ObjPermission.ClientsManagementPermissions, ObjPermission.UsersManagementPermissions, 
-                ObjPermission.CurrenciesManagementPermissions, ObjPermission.TransactionsManagementPermissions);
-        }
+        
 
 
         public void UpdatePermissionsString()
         { 
-        
             FullPermissionStr = this.MainPermissions.ToString() + "#" + this.ClientsManagementPermissions.ToString() + "#" +
                 this.UsersManagementPermissions.ToString() + "#" + this.CurrenciesManagementPermissions.ToString() + "#" + this.TransactionsManagementPermissions.ToString();
 

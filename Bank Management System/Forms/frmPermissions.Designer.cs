@@ -30,57 +30,57 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPermissions));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("AddClient");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("DeleteClient");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("UpdateClient");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("ListClients");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("FindClient");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("ClientsManagement", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("AddUser");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("DeleteUser");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("UpdateUser");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("ListUsers");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("FindUser");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("UsersManagement", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("AddCurrency");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("UpdateCurrency");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("ListCurrencies");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("FindCurrency");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("ExchangeCurrency");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("ExchangeLog");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("CurrencyExchange", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Deposit");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Withdraw");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("ListBalances");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Transfer");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("TransferLog");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Transactions", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("FullAccess", new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode12,
-            treeNode19,
-            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("AddClient");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("DeleteClient");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("UpdateClient");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("ListClients");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("FindClient");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("ClientsManagement", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31});
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("AddUser");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("DeleteUser");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("UpdateUser");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("ListUsers");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("FindUser");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("UsersManagement", new System.Windows.Forms.TreeNode[] {
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36,
+            treeNode37});
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("AddCurrency");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("UpdateCurrency");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("ListCurrencies");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("FindCurrency");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("ExchangeCurrency");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("ExchangeLog");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("CurrencyExchange", new System.Windows.Forms.TreeNode[] {
+            treeNode39,
+            treeNode40,
+            treeNode41,
+            treeNode42,
+            treeNode43,
+            treeNode44});
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Deposit");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Withdraw");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("ListBalances");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Transfer");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("TransferLog");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Transactions", new System.Windows.Forms.TreeNode[] {
+            treeNode46,
+            treeNode47,
+            treeNode48,
+            treeNode49,
+            treeNode50});
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("FullAccess", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode38,
+            treeNode45,
+            treeNode51});
             this.btnSave = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -152,10 +152,11 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(152, 54);
             this.btnBack.TabIndex = 73;
-            this.btnBack.Text = "Back";
+            this.btnBack.Text = "Close";
             this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pnlUserPermissions
             // 
@@ -182,110 +183,110 @@
             this.trvPermissions.ImageList = this.imageList1;
             this.trvPermissions.Location = new System.Drawing.Point(210, 162);
             this.trvPermissions.Name = "trvPermissions";
-            treeNode1.Name = "ndAddClient";
-            treeNode1.Tag = "1";
-            treeNode1.Text = "AddClient";
-            treeNode2.ImageKey = "Delete User Client Icon Ready.png";
-            treeNode2.Name = "ndDeleteClient";
-            treeNode2.Tag = "2";
-            treeNode2.Text = "DeleteClient";
-            treeNode3.ImageKey = "Update Client or User Ready Icon.png";
-            treeNode3.Name = "ndUpdateClient";
-            treeNode3.Tag = "4";
-            treeNode3.Text = "UpdateClient";
-            treeNode4.ImageKey = "List Clients. Icon Readypng.png";
-            treeNode4.Name = "ndListClients";
-            treeNode4.Tag = "8";
-            treeNode4.Text = "ListClients";
-            treeNode5.ImageKey = "Find Client.png";
-            treeNode5.Name = "ndFindClient";
-            treeNode5.Tag = "16";
-            treeNode5.Text = "FindClient";
-            treeNode6.ImageKey = "User Client Management Icon Ready.png";
-            treeNode6.Name = "ndClientsManagement";
-            treeNode6.Tag = "-1";
-            treeNode6.Text = "ClientsManagement";
-            treeNode7.Name = "ndAddUser";
-            treeNode7.Tag = "1";
-            treeNode7.Text = "AddUser";
-            treeNode8.ImageKey = "Delete User Client Icon Ready.png";
-            treeNode8.Name = "ndDeleteUser";
-            treeNode8.Tag = "2";
-            treeNode8.Text = "DeleteUser";
-            treeNode9.ImageKey = "Update Client or User Ready Icon.png";
-            treeNode9.Name = "ndUpdateUser";
-            treeNode9.Tag = "4";
-            treeNode9.Text = "UpdateUser";
-            treeNode10.ImageKey = "List Clients. Icon Readypng.png";
-            treeNode10.Name = "ndListUsers";
-            treeNode10.Tag = "8";
-            treeNode10.Text = "ListUsers";
-            treeNode11.ImageKey = "Find Client.png";
-            treeNode11.Name = "ndFindUser";
-            treeNode11.Tag = "16";
-            treeNode11.Text = "FindUser";
-            treeNode12.ImageIndex = 24;
-            treeNode12.Name = "ndUsersManagement";
-            treeNode12.Tag = "-1";
-            treeNode12.Text = "UsersManagement";
-            treeNode13.ImageKey = "AddNewCurrency icon.png";
-            treeNode13.Name = "ndAddCurrency";
-            treeNode13.Tag = "1";
-            treeNode13.Text = "AddCurrency";
-            treeNode14.ImageKey = "Currency Update Icon Colored.png";
-            treeNode14.Name = "ndUpdateCurrency";
-            treeNode14.Tag = "2";
-            treeNode14.Text = "UpdateCurrency";
-            treeNode15.ImageKey = "List Currencies Icon.png";
-            treeNode15.Name = "ndListCurrencies";
-            treeNode15.Tag = "4";
-            treeNode15.Text = "ListCurrencies";
-            treeNode16.ImageKey = "Find Client.png";
-            treeNode16.Name = "ndFindCurrency";
-            treeNode16.Tag = "8";
-            treeNode16.Text = "FindCurrency";
-            treeNode17.ImageKey = "Currency Exchange Icon Ready.png";
-            treeNode17.Name = "ndExchangeCurrency";
-            treeNode17.Tag = "16";
-            treeNode17.Text = "ExchangeCurrency";
-            treeNode18.ImageKey = "Transfer Log Icon Colored BW.png";
-            treeNode18.Name = "ndExchangeLog";
-            treeNode18.Tag = "32";
-            treeNode18.Text = "ExchangeLog";
-            treeNode19.ImageIndex = 4;
-            treeNode19.Name = "ndCurrencyExchange";
-            treeNode19.Tag = "-1";
-            treeNode19.Text = "CurrencyExchange";
-            treeNode20.ImageKey = "Deposit1 icon.png";
-            treeNode20.Name = "ndDeposit";
-            treeNode20.Tag = "1";
-            treeNode20.Text = "Deposit";
-            treeNode21.ImageKey = "Withdraw Icon.png";
-            treeNode21.Name = "ndWithdraw";
-            treeNode21.Tag = "2";
-            treeNode21.Text = "Withdraw";
-            treeNode22.ImageKey = "List Balances Icon.png";
-            treeNode22.Name = "ndListBalances";
-            treeNode22.Tag = "4";
-            treeNode22.Text = "ListBalances";
-            treeNode23.ImageKey = "Transfer icon Colored.png";
-            treeNode23.Name = "ndTransfer";
-            treeNode23.Tag = "8";
-            treeNode23.Text = "Transfer";
-            treeNode24.ImageKey = "Transfer Log Icon Colored BW.png";
-            treeNode24.Name = "ndTransferLog";
-            treeNode24.Tag = "16";
-            treeNode24.Text = "TransferLog";
-            treeNode25.ImageKey = "Transfer butt Icon.png";
-            treeNode25.Name = "ndTransactions";
-            treeNode25.Tag = "-1";
-            treeNode25.Text = "Transactions";
-            treeNode26.ImageKey = "Bank Logo.ico";
-            treeNode26.Name = "ndFullAccess";
-            treeNode26.Tag = "-1";
-            treeNode26.Text = "FullAccess";
+            treeNode27.Name = "ndAddClient";
+            treeNode27.Tag = "1";
+            treeNode27.Text = "AddClient";
+            treeNode28.ImageKey = "Delete User Client Icon Ready.png";
+            treeNode28.Name = "ndDeleteClient";
+            treeNode28.Tag = "2";
+            treeNode28.Text = "DeleteClient";
+            treeNode29.ImageKey = "Update Client or User Ready Icon.png";
+            treeNode29.Name = "ndUpdateClient";
+            treeNode29.Tag = "4";
+            treeNode29.Text = "UpdateClient";
+            treeNode30.ImageKey = "List Clients. Icon Readypng.png";
+            treeNode30.Name = "ndListClients";
+            treeNode30.Tag = "8";
+            treeNode30.Text = "ListClients";
+            treeNode31.ImageKey = "Find Client.png";
+            treeNode31.Name = "ndFindClient";
+            treeNode31.Tag = "16";
+            treeNode31.Text = "FindClient";
+            treeNode32.ImageKey = "User Client Management Icon Ready.png";
+            treeNode32.Name = "ndClientsManagement";
+            treeNode32.Tag = "-1";
+            treeNode32.Text = "ClientsManagement";
+            treeNode33.Name = "ndAddUser";
+            treeNode33.Tag = "1";
+            treeNode33.Text = "AddUser";
+            treeNode34.ImageKey = "Delete User Client Icon Ready.png";
+            treeNode34.Name = "ndDeleteUser";
+            treeNode34.Tag = "2";
+            treeNode34.Text = "DeleteUser";
+            treeNode35.ImageKey = "Update Client or User Ready Icon.png";
+            treeNode35.Name = "ndUpdateUser";
+            treeNode35.Tag = "4";
+            treeNode35.Text = "UpdateUser";
+            treeNode36.ImageKey = "List Clients. Icon Readypng.png";
+            treeNode36.Name = "ndListUsers";
+            treeNode36.Tag = "8";
+            treeNode36.Text = "ListUsers";
+            treeNode37.ImageKey = "Find Client.png";
+            treeNode37.Name = "ndFindUser";
+            treeNode37.Tag = "16";
+            treeNode37.Text = "FindUser";
+            treeNode38.ImageIndex = 24;
+            treeNode38.Name = "ndUsersManagement";
+            treeNode38.Tag = "-1";
+            treeNode38.Text = "UsersManagement";
+            treeNode39.ImageKey = "AddNewCurrency icon.png";
+            treeNode39.Name = "ndAddCurrency";
+            treeNode39.Tag = "1";
+            treeNode39.Text = "AddCurrency";
+            treeNode40.ImageKey = "Currency Update Icon Colored.png";
+            treeNode40.Name = "ndUpdateCurrency";
+            treeNode40.Tag = "2";
+            treeNode40.Text = "UpdateCurrency";
+            treeNode41.ImageKey = "List Currencies Icon.png";
+            treeNode41.Name = "ndListCurrencies";
+            treeNode41.Tag = "4";
+            treeNode41.Text = "ListCurrencies";
+            treeNode42.ImageKey = "Find Client.png";
+            treeNode42.Name = "ndFindCurrency";
+            treeNode42.Tag = "8";
+            treeNode42.Text = "FindCurrency";
+            treeNode43.ImageKey = "Currency Exchange Icon Ready.png";
+            treeNode43.Name = "ndExchangeCurrency";
+            treeNode43.Tag = "16";
+            treeNode43.Text = "ExchangeCurrency";
+            treeNode44.ImageKey = "Transfer Log Icon Colored BW.png";
+            treeNode44.Name = "ndExchangeLog";
+            treeNode44.Tag = "32";
+            treeNode44.Text = "ExchangeLog";
+            treeNode45.ImageIndex = 4;
+            treeNode45.Name = "ndCurrencyExchange";
+            treeNode45.Tag = "-1";
+            treeNode45.Text = "CurrencyExchange";
+            treeNode46.ImageKey = "Deposit1 icon.png";
+            treeNode46.Name = "ndDeposit";
+            treeNode46.Tag = "1";
+            treeNode46.Text = "Deposit";
+            treeNode47.ImageKey = "Withdraw Icon.png";
+            treeNode47.Name = "ndWithdraw";
+            treeNode47.Tag = "2";
+            treeNode47.Text = "Withdraw";
+            treeNode48.ImageKey = "List Balances Icon.png";
+            treeNode48.Name = "ndListBalances";
+            treeNode48.Tag = "4";
+            treeNode48.Text = "ListBalances";
+            treeNode49.ImageKey = "Transfer icon Colored.png";
+            treeNode49.Name = "ndTransfer";
+            treeNode49.Tag = "8";
+            treeNode49.Text = "Transfer";
+            treeNode50.ImageKey = "Transfer Log Icon Colored BW.png";
+            treeNode50.Name = "ndTransferLog";
+            treeNode50.Tag = "16";
+            treeNode50.Text = "TransferLog";
+            treeNode51.ImageKey = "Transfer butt Icon.png";
+            treeNode51.Name = "ndTransactions";
+            treeNode51.Tag = "-1";
+            treeNode51.Text = "Transactions";
+            treeNode52.ImageKey = "Bank Logo.ico";
+            treeNode52.Name = "ndFullAccess";
+            treeNode52.Tag = "-1";
+            treeNode52.Text = "FullAccess";
             this.trvPermissions.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode26});
+            treeNode52});
             this.trvPermissions.SelectedImageIndex = 0;
             this.trvPermissions.Size = new System.Drawing.Size(497, 473);
             this.trvPermissions.TabIndex = 75;
@@ -325,14 +326,15 @@
             this.imageList1.Images.SetKeyName(27, "Currency Update Icon Colored.png");
             this.imageList1.Images.SetKeyName(28, "Transfer Log Icon Colored BW.png");
             // 
-            // Form1
+            // frmPermissions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 740);
             this.Controls.Add(this.pnlUserPermissions);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmPermissions";
+            this.Text = "Permissions";
             this.Load += new System.EventHandler(this.frmPermissions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlUserPermissions.ResumeLayout(false);

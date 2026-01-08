@@ -20,9 +20,9 @@ namespace Bank_Management_System.UserControlsWinForms.Users
 
         clsUserBusinessLogic LoginUser;
 
-        int Permissions = 0;
+        public string PermissionsStr = string.Empty;
 
-        string PermissionsStr;
+       
 
         public AddUserControl(clsUserBusinessLogic LoginUser)
         {
@@ -45,11 +45,11 @@ namespace Bank_Management_System.UserControlsWinForms.Users
             
             using (frmPermissions frmGetUserPermissions = new frmPermissions()) 
             {
-                frmGetUserPermissions.PermissionsInfo.MainPermissions = Permissions;
+                
 
                 if (frmGetUserPermissions.ShowDialog() == DialogResult.OK)
                 {
-                    this.Permissions = frmGetUserPermissions.PermissionsInfo.MainPermissions;
+                    this.PermissionsStr = frmGetUserPermissions.PermissionsInfo.FullPermissionStr;
 
                     PermissionsStr = frmGetUserPermissions.PermissionsInfo.FullPermissionStr;
 
@@ -73,7 +73,7 @@ namespace Bank_Management_System.UserControlsWinForms.Users
             NewUser.Phone = tbPhone.Text;
             NewUser.UserName = tbUserName.Text;
             NewUser.Password = tbPassword.Text;
-            //NewUser.Permissions = this.Permissions;
+            NewUser.PermissionsString = this.PermissionsStr;
 
             
             if (clsUserBusinessLogic.DoesUserExist(NewUser.UserName))

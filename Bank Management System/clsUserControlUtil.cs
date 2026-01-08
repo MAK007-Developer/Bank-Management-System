@@ -50,10 +50,12 @@ namespace Bank_Management_System
              "HasTransfer", "HasListBalances", "HasTransferLog"
             */
 
-            foreach (var item in PermissionsDict)
-            {
-                PermissionsDict[item.Key] = true;
-            }
+            //foreach (var item in PermissionsDict)
+            //{
+            //    PermissionsDict[item.Key] = true;
+            //}
+
+            PermissionsDict.Keys.ToList().ForEach(key => PermissionsDict[key] = true);
 
             //PermissionsDict["HasFullAccess"] = true;
 
@@ -110,10 +112,17 @@ namespace Bank_Management_System
         private static void InitializePermissionsDict()
         {
             PermissionsDict.Add("HasFullAccess", false);
-            PermissionsDict.Add("HasClientsFullAccess", false);
+            PermissionsDict.Add("HasClientsScreenAccess", false);
+            PermissionsDict.Add("HasUsersScreenAccess", false);
+            PermissionsDict.Add("HasCurrenciesScreenAccess", false);
+            PermissionsDict.Add("HasTransactionsScreenAccess", false);
+
+
+            PermissionsDict.Add("HasClientsAccess", false);
             PermissionsDict.Add("HasUsersFullAccess", false);
             PermissionsDict.Add("HasCurrenciesFullAccess", false);
             PermissionsDict.Add("HasTransactionsFullAccess", false);
+
 
             PermissionsDict.Add("HasAddClient", false);
             PermissionsDict.Add("HasDeleteClient", false);
@@ -141,6 +150,29 @@ namespace Bank_Management_System
             PermissionsDict.Add("HasTransferLog", false);
         }
 
+        private static void SetMainFlag(clsPermissionsBLL.enMainPermissions mainPermissions)
+        {
+            switch (mainPermissions)
+            {
+                case clsPermissionsBLL.enMainPermissions.FullAceess:
+                    GrantFullAccess();
+                    break;
+                case clsPermissionsBLL.enMainPermissions.ClientsManagementScreen:
+                    PermissionsDict[""] = true;
+                    break;
+                case clsPermissionsBLL.enMainPermissions.UsersManagementScreen:
+                    PermissionsDict[""] = true;
+                    break;
+                case clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen:
+                    PermissionsDict[""] = true;
+                    break;
+                case clsPermissionsBLL.enMainPermissions.TransactionsScreen:
+                    PermissionsDict[""] = true;
+                    break;
+                default:
+                    break;
+            }
+        }
 
         private static bool HasPermissionFlag(clsPermissionsBLL.enMainPermissions enMainPermissions)
         {
@@ -161,19 +193,19 @@ namespace Bank_Management_System
                 return;
             }
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.ClientsManagement))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.ClientsManagementScreen))
                 GrantClientsFullAccess();
             
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.UsersManagement))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.UsersManagementScreen))
                 GrantUsersFullAccess();
             
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.CurrencyExchange))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen))
                 GrantCurrenciesFullAccess();
             
 
-            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.Transactions))
+            if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.TransactionsScreen))
                 GrantTransactionsFullAccess();
             
 
@@ -221,6 +253,7 @@ namespace Bank_Management_System
         {
             return (LoginUser.PermissionsInfo.UsersManagementPermissions & (int)enUsersPermission) == (int)enUsersPermission;
         }
+
         private static void SetUsersBoolFlags()
         {
             if (LoginUser.PermissionsInfo.UsersManagementPermissions == 0)
@@ -308,7 +341,7 @@ namespace Bank_Management_System
                 return;
 
 
-            if (LoginUser.PermissionsInfo.TransactionsManagementPermissions == (int)clsPermissionsBLL.enTransactionsManagementPermissions.TransactionsManagement)
+            if (LoginUser.PermissionsInfo.TransactionsManagementPermissions == (int)clsPermissionsBLL.enTransactionsManagementPermissions.TransactionsManagementFullAccess)
             {
                 GrantTransactionsFullAccess();
                 return;
@@ -336,7 +369,7 @@ namespace Bank_Management_System
 
 
         /*
-             Dictionary Structure:
+             Permissions Dictionary Structure:
             
              PermissionsDict is a Dictionary<string, bool> where:
              - Key: Permission name as string (e.g., "HasFullAccess", "HasAddClient")

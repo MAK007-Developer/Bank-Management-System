@@ -33,7 +33,7 @@ namespace Bank_Management_System
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            lblLogedInUser.Text = LoginUser.UserName;
+            lblLogedInUser.Text = clsUserControlUtil.LoginUser.UserName;
         }
 
         private void ShowUserControl(UserControl newControl)
@@ -75,7 +75,10 @@ namespace Bank_Management_System
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            clsUserControlUtil.PermissionsDict.Clear();
+
+            if (clsUserControlUtil.PermissionsDict.Count == 0)
+                this.Close();
         }
 
         private void LnkLblDevelopedBy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
