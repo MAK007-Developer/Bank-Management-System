@@ -112,7 +112,7 @@ namespace Bank_Management_System
         private static void InitializePermissionsDict()
         {
             PermissionsDict.Add("HasFullAccess", false);
-            PermissionsDict.Add("HasClientsFullAccess", false);
+            PermissionsDict.Add("HasClientsScreenAccess", false);
             PermissionsDict.Add("HasUsersFullAccess", false);
             PermissionsDict.Add("HasCurrenciesFullAccess", false);
             PermissionsDict.Add("HasTransactionsFullAccess", false);
@@ -143,6 +143,29 @@ namespace Bank_Management_System
             PermissionsDict.Add("HasTransferLog", false);
         }
 
+        private static void SetMainFlag(clsPermissionsBLL.enMainPermissions mainPermissions)
+        {
+            switch (mainPermissions)
+            {
+                case clsPermissionsBLL.enMainPermissions.FullAceess:
+                    GrantFullAccess();
+                    break;
+                case clsPermissionsBLL.enMainPermissions.ClientsManagement:
+                    PermissionsDict[""] = true;
+                    break;
+                case clsPermissionsBLL.enMainPermissions.UsersManagement:
+                    PermissionsDict[""] = true;
+                    break;
+                case clsPermissionsBLL.enMainPermissions.CurrencyExchange:
+                    PermissionsDict[""] = true;
+                    break;
+                case clsPermissionsBLL.enMainPermissions.Transactions:
+                    PermissionsDict[""] = true;
+                    break;
+                default:
+                    break;
+            }
+        }
 
         private static bool HasPermissionFlag(clsPermissionsBLL.enMainPermissions enMainPermissions)
         {
