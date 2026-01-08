@@ -118,24 +118,23 @@ namespace Bank_Management_System
             PermissionsDict.Add("HasTransactionsScreenAccess", false);
 
 
-            PermissionsDict.Add("HasClientsAccess", false);
-            PermissionsDict.Add("HasUsersFullAccess", false);
-            PermissionsDict.Add("HasCurrenciesFullAccess", false);
-            PermissionsDict.Add("HasTransactionsFullAccess", false);
-
-
+            PermissionsDict.Add("HasClientsFullAccess", false);
             PermissionsDict.Add("HasAddClient", false);
             PermissionsDict.Add("HasDeleteClient", false);
             PermissionsDict.Add("HasUpdateClient", false);
             PermissionsDict.Add("HasListClients", false);
             PermissionsDict.Add("HasFindClient", false);
 
+
+            PermissionsDict.Add("HasUsersFullAccess", false);
             PermissionsDict.Add("HasAddUser", false);
             PermissionsDict.Add("HasDeleteUser", false);
             PermissionsDict.Add("HasUpdateUser", false);
             PermissionsDict.Add("HasListUsers", false);
             PermissionsDict.Add("HasFindUser", false);
 
+
+            PermissionsDict.Add("HasCurrenciesFullAccess", false);
             PermissionsDict.Add("HasAddCurrency", false);
             PermissionsDict.Add("HasUpdateCurrency", false);
             PermissionsDict.Add("HasListCurrencies", false);
@@ -143,6 +142,8 @@ namespace Bank_Management_System
             PermissionsDict.Add("HasExchangeLog", false);
             PermissionsDict.Add("HasExchangeCurrency", false);
 
+
+            PermissionsDict.Add("HasTransactionsFullAccess", false);
             PermissionsDict.Add("HasDeposit", false);
             PermissionsDict.Add("HasWithdraw", false);
             PermissionsDict.Add("HasTransfer", false);
@@ -150,7 +151,7 @@ namespace Bank_Management_System
             PermissionsDict.Add("HasTransferLog", false);
         }
 
-        private static void SetMainFlag(clsPermissionsBLL.enMainPermissions mainPermissions)
+        private static void SetMainScreenFlag(clsPermissionsBLL.enMainPermissions mainPermissions)
         {
             switch (mainPermissions)
             {
@@ -158,16 +159,16 @@ namespace Bank_Management_System
                     GrantFullAccess();
                     break;
                 case clsPermissionsBLL.enMainPermissions.ClientsManagementScreen:
-                    PermissionsDict[""] = true;
+                    PermissionsDict["HasClientsScreenAccess"] = true;
                     break;
                 case clsPermissionsBLL.enMainPermissions.UsersManagementScreen:
-                    PermissionsDict[""] = true;
+                    PermissionsDict["HasUsersScreenAccess"] = true;
                     break;
                 case clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen:
-                    PermissionsDict[""] = true;
+                    PermissionsDict["HasCurrenciesScreenAccess"] = true;
                     break;
                 case clsPermissionsBLL.enMainPermissions.TransactionsScreen:
-                    PermissionsDict[""] = true;
+                    PermissionsDict["HasTransactionsScreenAccess"] = true;
                     break;
                 default:
                     break;
@@ -194,20 +195,20 @@ namespace Bank_Management_System
             }
 
             if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.ClientsManagementScreen))
-                GrantClientsFullAccess();
+                SetMainScreenFlag(clsPermissionsBLL.enMainPermissions.ClientsManagementScreen);
             
 
             if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.UsersManagementScreen))
-                GrantUsersFullAccess();
-            
+                SetMainScreenFlag(clsPermissionsBLL.enMainPermissions.UsersManagementScreen);
+
 
             if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen))
-                GrantCurrenciesFullAccess();
-            
+                SetMainScreenFlag(clsPermissionsBLL.enMainPermissions.CurrencyExchangeScreen);
+
 
             if (HasPermissionFlag(clsPermissionsBLL.enMainPermissions.TransactionsScreen))
-                GrantTransactionsFullAccess();
-            
+                SetMainScreenFlag(clsPermissionsBLL.enMainPermissions.TransactionsScreen);
+
 
 
         }
@@ -397,7 +398,6 @@ namespace Bank_Management_System
             */
 
             SetMainBoolFlags();
-
             if (!PermissionsDict["HasFullAccess"])
             {
                 SetClientsBoolFlags();
